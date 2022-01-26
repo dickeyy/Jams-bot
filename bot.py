@@ -52,9 +52,11 @@ async def play(ctx, *, search):
     results1 = sp.search(search)
 #https://open.spotify.com/track/4RCWB3V8V0dignt99LZ8vH?si=6c3522cc1e8749be
 
-    songUrl = results1['tracks']['items'][0]['external_urls']
+    songUrl = results1['tracks']['items'][0]['external_url']
     
-    ctx.voice_client.play(discord.PCMVolumeTransformer(discord.FFmpegPCMAudio(f"{songUrl}")))
+    os.system(f'spotdl {songUrl}')
+
+    #ctx.voice_client.play(discord.PCMVolumeTransformer(discord.FFmpegPCMAudio(f"{songUrl}")))
 
 # leave command
 @bot.command()
