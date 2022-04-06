@@ -63,6 +63,7 @@ const commands = [
 
 // Register slash commands
 const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
+// const rest = new REST({ version: '9' }).setToken(process.env.BETA_TOKEN);
 
 (async () => {
     try {
@@ -72,6 +73,7 @@ const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
         //   Routes.applicationGuildCommands(process.env.APP_ID, '731445738290020442', '801360477984522260'),
         //   { body: commands },
           Routes.applicationCommands(process.env.APP_ID),
+        //   Routes.applicationCommands(process.env.BETA_APP_ID),
           {body: commands},
       );
   
@@ -145,6 +147,24 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
+// Client events
+// when bot joins a new server
+client.on('guildCreate', async guild => {
+    setDoc(doc(db, 'guilds', guild.id), {
+        id: guild.id,
+        name: guild.name,
+        description: guild.description,
+        memberCount: guild.memberCount,
+        large: guild.large,
+        vanityUrl: guild.vanityURLCode,
+        joinedAt: Timestamp.now(),
+        ownerId: guild.ownerId,
+        shardId: guild.shardId
+    }).then(() => {
+        console.log(`New Guild -- ${guild.name}`)
+    })
+});
+
 // Define command functions
 // Run Command function
 function cmdRun(user,cmdName) {
@@ -214,13 +234,24 @@ async function playCmd(user,guild,interaction,song) {
                 embed
                 .setTitle('Added to Queue')
             }
+            
+            if (track.playlist != undefined) {
+                const playlist = result.playlist
+                await queue.addTracks(result.tracks)
+                embed
+                .setDescription(`[${playlist.title}](${playlist.url})`)
+                .setThumbnail(playlist.thumbnail)
+                .setFooter({text: `Songs: ${result.tracks.length} | Views: ${playlist.views}`})
 
-            await queue.addTrack(track)
+            } else {
+                await queue.addTrack(track)
+                embed
+                .setDescription(`[${track.title}](${track.url})`)
+                .setThumbnail(track.thumbnail)
+                .setFooter({text: `Duration: ${track.duration} | Views: ${track.views}`})
+            }
             embed
             .setColor(mainHex)
-            .setDescription(`[${track.title}](${track.url})`)
-            .setThumbnail(track.thumbnail)
-            .setFooter({text: `Duration: ${track.duration} | Views: ${track.views}`})
             cmdRun(user,cmdName)
             interaction.reply({
                 embeds: [embed],
@@ -248,33 +279,64 @@ async function queueCmd(user,guild,interaction,page) {
         })
     } else {
         const totalPages = Math.ceil(queue.tracks.length / 10) || 1
-        const pageNum = page || 1 - 1
 
-        if (pageNum > totalPages) {
-            const embed = new MessageEmbed()
-            .setTitle(`There are/is only ${totalPages} page(s)`)
-            .setColor('RED')
-            cmdRun(user,cmdName)
+        if (page == null) {
+            const pageNum = 0
+
+            if (pageNum > totalPages) {
+                const embed = new MessageEmbed()
+                .setTitle(`There are/is only ${totalPages} page(s)`)
+                .setColor('RED')
+                cmdRun(user,cmdName)
+                interaction.reply({
+                    embeds: [embed],
+                    ephemeral: true
+                })
+            }
+    
+            const queueString = queue.tracks.slice(pageNum * 10, pageNum * 10 + 10).map((song, i) => {
+                return `**${pageNum * 10 + i +1}.** \ [${song.title}](${song.url}) \ [${song.duration}] -- Requested By: <@${song.requestedBy.id}>`
+            }).join('\n')
+            const currentSong = queue.current
+    
             interaction.reply({
-                embeds: [embed],
-                ephemeral: true
+                embeds: [
+                    new MessageEmbed()
+                    .setDescription(`**Currently Playing:**` + (currentSong ? `\`[${currentSong.duration}]\` ${currentSong.title} -- <@${currentSong.requestedBy.id}>` : `Nothing`) + `\n\n**Queue**\n${queueString}`)
+                    .setColor(mainHex)
+                    .setFooter({text: `Page ${pageNum + 1} / ${totalPages}`})
+                    .setThumbnail(currentSong.thumbnail)
+                ],
+            })
+        } else {
+            const pageNum = page - 1
+
+            if (pageNum > totalPages) {
+                const embed = new MessageEmbed()
+                .setTitle(`There are/is only ${totalPages} page(s)`)
+                .setColor('RED')
+                cmdRun(user,cmdName)
+                interaction.reply({
+                    embeds: [embed],
+                    ephemeral: true
+                })
+            }
+    
+            const queueString = queue.tracks.slice(pageNum * 10, pageNum * 10 + 10).map((song, i) => {
+                return `**${pageNum * 10 + i +1}.** \ [${song.title}](${song.url}) \ [${song.duration}] -- Requested By: <@${song.requestedBy.id}>`
+            }).join('\n')
+            const currentSong = queue.current
+    
+            interaction.reply({
+                embeds: [
+                    new MessageEmbed()
+                    .setDescription(`**Currently Playing:**` + (currentSong ? `\`[${currentSong.duration}]\` ${currentSong.title} -- <@${currentSong.requestedBy.id}>` : `Nothing`) + `\n\n**Queue**\n${queueString}`)
+                    .setColor(mainHex)
+                    .setFooter({text: `Page ${pageNum + 1} / ${totalPages}`})
+                    .setThumbnail(currentSong.thumbnail)
+                ],
             })
         }
-
-        const queueString = queue.tracks.slice(pageNum * 10, pageNum * 10 + 10).map((song, i) => {
-            return `**${pageNum * 10 + i +1}.** \ [${song.title}](${song.url}) \ [${song.duration}] -- Requested By: <@${song.requestedBy.id}>`
-        }).join('\n')
-        const currentSong = queue.current
-
-        interaction.reply({
-            embeds: [
-                new MessageEmbed()
-                .setDescription(`**Currently Playing:**` + (currentSong ? `\`[${currentSong.duration}]\` ${currentSong.title} -- <@${currentSong.requestedBy.id}>` : `Nothing`) + `\n\n**Queue**\n${queueString}`)
-                .setColor(mainHex)
-                .setFooter({text: `Page ${pageNum + 1} / ${totalPages}`})
-                .setThumbnail(currentSong.thumbnail)
-            ],
-        })
     }
     cmdRun(user,cmdName)
 }
@@ -507,7 +569,6 @@ async function clearCmd(user,guild,interaction) {
     const cmdName = 'clear'
 
     const queue = client.player.getQueue(guild.id)
-    console.log(queue)
 
     if (!queue) {
         const embed = new MessageEmbed()
@@ -562,3 +623,4 @@ function statsCmd(user,guild,interaction) {
 
 // Run bot
 client.login(process.env.TOKEN);
+// client.login(process.env.BETA_TOKEN);
