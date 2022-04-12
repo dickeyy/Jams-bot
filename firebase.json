@@ -1,11 +1,18 @@
 {
   "hosting": {
     "cleanUrls": true,
-    "public": "public",
+    "public": "./website/public",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    "rewrites": [{
+      "source": "/**",
+      "function": "api"
+    }]
+  },
+  "functions": {
+    "runtime": "nodejs16"
   }
 }

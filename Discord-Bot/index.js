@@ -8,6 +8,8 @@ const { getFirestore, doc, setDoc, getDoc, deleteDoc, Timestamp, addDoc, collect
 const { Player, QueryType } = require('discord-player')
 const fs = require('fs');
 const osu = require('node-os-utils');
+const { Lyrics, Reverbnation, Facebook, Vimeo } = require("@discord-player/extractor");
+const lyricsClient = Lyrics.init();
 
 // Process errors
 process.on('uncaughtException', function (error) {
@@ -37,12 +39,17 @@ const db = getFirestore(app);
 
 // Register voice client
 client.player = new Player(client, {
+    leaveOnEnd: false,
+    leaveOnEmpty: false,
     ytdlOptions: {
         quality: 'highestaudio',
         highWaterMark: 1 << 25,
         opusEncoded: true,
-    }
+    }, 
 })
+client.player.use("reverbnation", Reverbnation);
+client.player.use("facebook", Facebook);
+client.player.use("vimeo", Vimeo)
 console.log('Player Loaded')
 
 // Write commands and stuff
@@ -58,7 +65,14 @@ const commands = [
     { name: 'skip', description: 'Skip the current song' },
     { name: 'skipto', description: 'Skip to a specific song in the queue', options: [{ name: 'number', description: 'What number song in the queue do you want to skip to', required: true, type: Constants.ApplicationCommandOptionTypes.NUMBER }] },
     { name: 'clear', description: 'Clear the queue' },
-    { name: 'stats', description: 'Get stats about the bot' }
+    { name: 'stats', description: 'Get stats about the bot' },
+    { name: 'loop', description: 'Loop the current song' },
+    { name: 'loopqueue', description: 'Loop the queue' },
+    { name: 'stoploop', description: 'Stop looping the current song / queue' },
+    { name: 'info', description: 'Get some information about the bot' },
+    { name: 'lyrics', description: 'Get the lyrics for the current song' },
+    { name: 'volume', description: 'Set the default volume of the bot', options: [{ name: 'level', description: 'The level of the volume you want to set, must be < 250', required: true, type: Constants.ApplicationCommandOptionTypes.NUMBER }] },
+    { name: 'filter', description: 'Set a filter for the music', options: [{ name: 'filter', description: 'The filter you want to apply, to get a list of filters', required: true, type: Constants.ApplicationCommandOptionTypes.STRING, choices: [ { name: 'off', value: 'off'}, { name: '3D', value: '3D' }, { name: 'bassboost', value: 'bassboost_high' }, { name: '8D', value: '8D'}, { name: 'vaporwave', value: 'vaporwave' }, { name: 'nightcore', value: 'nightcore' }, { name: 'phaser', value: 'phaser' }, { name: 'tremolo', value: 'tremolo' }, { name: 'vibrato', value: 'vibrato' }, { name: 'reverse', value: 'reverse' }, { name: 'treble', value: 'treble' }, { name: 'normalizer', value: 'normalizer' }, { name: 'surrounding', value: 'surrounding' }, { name: 'pulsator', value: 'pulsator' }, { name: 'subboost', value: 'subboost' }, { name: 'karaoke', value: 'karaoke' }, { name: 'flanger', value: 'flanger' }, { name: 'compressor', value: 'compressor' }, { name: 'expander', value: 'expander' }, { name: 'softlimiter', value: 'softlimiter' }, { name: 'chorus', value: 'chorus' }, { name: 'fadein', value: 'fadein' }, { name: 'earrape', value: 'earrape' }] }] },
 ]
 
 // Register slash commands
@@ -70,7 +84,7 @@ const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
       console.log('Started refreshing application (/) commands.');
   
       await rest.put(
-        //   Routes.applicationGuildCommands(process.env.APP_ID, '731445738290020442', '801360477984522260'),
+        //   Routes.applicationGuildCommands(process.env.BETA_APP_ID, '801360477984522260', '961272863363567636'),
         //   { body: commands },
           Routes.applicationCommands(process.env.APP_ID),
         //   Routes.applicationCommands(process.env.BETA_APP_ID),
@@ -91,7 +105,7 @@ client.on('ready', () => {
 
 client.on('interactionCreate', async interaction => {
     if (!interaction.isCommand()) return;
-    const { commandName, options, user, guild, channel, ChannelData, } = interaction
+    const { commandName, options, user, guild, channel, ChannelData } = interaction
 
     if (commandName == 'help') {
         interaction.reply({
@@ -145,6 +159,36 @@ client.on('interactionCreate', async interaction => {
     if (commandName == 'stats') {
         statsCmd(user,guild,interaction)
     }
+
+    if (commandName == 'loop') {
+        await loopCmd(user,guild,interaction)
+    }
+
+    if (commandName == 'loopqueue') {
+        await loopqueueCmd(user,guild,interaction)
+    }
+
+    if (commandName == 'stoploop') {
+        await stoploopCmd(user,guild,interaction)
+    }
+
+    if (commandName == 'info') {
+        infoCmd(user,guild,interaction)
+    }
+
+    if (commandName == 'lyrics') {
+        await lyricsCmd(user,guild,interaction)
+    } 
+
+    if (commandName == 'volume') {
+        const level = options.getNumber('level')
+        await volumeCmd(user,guild,interaction,level)
+    }
+
+    if (commandName == 'filter') {
+        const filter = options.getString('filter')
+        await filterCmd(user,guild,interaction,filter)
+    }
 });
 
 // Client events
@@ -184,8 +228,10 @@ function helpCmd(user,guild) {
     .setTitle('Jams Help')
     .setDescription('All the command prefixes are `\`/`\`.\n\n`\`{item}`\` = optional parameter\n`\`[item]`\` = required parameter\n\n')
     .setFields([
-        {name: 'Music Commands:', value: "`\`/play [song]`\`, `\`/queue {page}`\`, `\`/stop`\`, `\`/shuffle`\`, `\`/nowplaying`\`, `\`/pause`\`, `\`/resume`\`, `\`/skip`\`, `\`/skipto [queue number]`\`, `\`/clear`\`"},
-        {name: "Misc. Commands:", value: "`\`/stats`\`"}
+        {name: 'Music Commands:', value: "`\`/play [song]`\`, `\`/queue {page}`\`, `\`/stop`\`, `\`/shuffle`\`, `\`/nowplaying`\`, `\`/pause`\`, `\`/resume`\`, `\`/skip`\`, `\`/skipto [queue number]`\`, `\`/clear`\`, `\`/loop`\`, `\`/loopqueue`\`, `\`/stoploop`\`"},
+        {name: "Misc. Commands:", value: "`\`/stats`\`, `\`/info`\`"},
+        { name: 'Links', value: '[🌐 Website](https://jamsbot.com) | [<:invite:823987169978613851> Invite](https://jamsbot.com/invite) | [<:discord:823989269626355793> Support](https://jamsbot.com/support)', inline: false }
+
     ])
     .setColor(mainHex)
 
@@ -416,17 +462,109 @@ async function nowPlayingCmd(user,guild,interaction) {
         let bar = queue.createProgressBar({
             queue: false,
             length: 19,
+            timecodes: true,
         })
         const song = queue.current
 
         const embed = new MessageEmbed()
-        .setTitle('Currently Playing')
+        .setTitle('Currently Playing 🔊')
         .setColor(mainHex)
         .setThumbnail(song.thumbnail)
         .setDescription(`[${song.title}](${song.url})\n\n` + bar)
+        .setFields([
+            { name: "Requested By:", value: `${song.requestedBy}`, inline: true },
+            { name: "Artist:", value: `${song.author}`, inline: true },
+        ])
         
+        // const row = new MessageActionRow()
+        // .addComponents(
+        //     new MessageButton()
+        //     .setCustomId('pAndR')
+        //     .setLabel('Pause / Resume')
+        //     .setStyle('SUCCESS'),
+
+        //     new MessageButton()
+        //     .setCustomId('skip')
+        //     .setLabel('Skip')
+        //     .setStyle('PRIMARY'),
+
+        //     new MessageButton()
+        //     .setCustomId('lyrics')
+        //     .setLabel('Lyrics')
+        //     .setStyle('SECONDARY'),
+
+        //     new MessageButton()
+        //     .setCustomId('stop')
+        //     .setLabel('Stop')
+        //     .setStyle('DANGER'),
+
+        // )
+        // var paused = false
+        // client.on('interactionCreate', interaction => {
+        //     if (!interaction.isButton()) return;
+
+        //     if (interaction['customId'] == 'pAndR') {
+                
+        //         if (!paused) {
+        //             queue.setPaused(true)
+        //             paused = true
+        //             interaction.reply({
+        //                 content: '👍',
+        //                 ephemeral: true
+        //             })
+        //         } else if (paused) {
+        //             queue.setPaused(false)
+        //             paused = false
+        //             interaction.reply({
+        //                 content: '👍',
+        //                 ephemeral: true
+        //             })
+        //         }
+
+        //     } else if (interaction['customId'] == 'skip') {
+        //         queue.skip()
+        //         interaction.reply({
+        //             content: '👍',
+        //             ephemeral: true
+        //         })
+        //     } else if (interaction['customId'] == 'stop') {
+        //         queue.destroy()
+        //         interaction.reply({
+        //             content: '👍',
+        //             ephemeral: true
+        //         })
+        //     } else if (interaction['customId'] == 'lyrics') {
+        //         const song = queue.current
+        //         const songTitle = song.title
+        //         lyricsClient.search(songTitle)
+        //             .then(x => {
+        //                 const embed = new MessageEmbed()
+        
+        //                 if (x != null) {
+        //                     embed.setTitle(`Lyrics for ${songTitle}`)
+        //                     embed.setColor(mainHex)
+        //                     embed.setDescription(x.lyrics)
+        //                     embed.setThumbnail(x.thumbnail)
+        //                     embed.setAuthor({name: `${x.artist.name}`, iconURL: x.artist.image})
+        //                     interaction.reply({
+        //                         embeds: [embed],
+        //                     })
+        //                 } else {
+        //                     embed.setTitle('Can not get lyrics')
+        //                     embed.setColor('RED')
+        //                     interaction.reply({
+        //                         embeds: [embed],
+        //                         ephemeral: true
+        //                     })
+        //                 }
+        //             }
+        //         )
+        //     }
+        // });
+
         interaction.reply({
             embeds: [embed],
+            // components: [row],
         })
         cmdRun(user,cmdName)
     }
@@ -449,12 +587,32 @@ async function pauseCmd(user,guild,interaction) {
         })
     } else {
         queue.setPaused(true)
+        // const row  = new MessageActionRow()
+        // .addComponents(
+        //     new MessageButton()
+        //     .setCustomId('resume')
+        //     .setLabel('Resume')
+        //     .setStyle('SECONDARY'),
+        // )  
+        
+        // client.on('interactionCreate', interaction => {
+        //     if (!interaction.isButton()) return;
+        //     if (interaction['customId'] == 'resume') {
+        //         queue.setPaused(false)
+        //         interaction.reply({
+        //             content: '👍',
+        //             ephemeral: true
+        //         })
+        //     }
+        // })
+        
         interaction.reply({
             embeds: [
                 new MessageEmbed()
                 .setTitle('Paused the jams!')
                 .setColor(mainHex)
             ],
+            // components: [row],
         })
         cmdRun(user,cmdName)
     }
@@ -486,12 +644,32 @@ async function resumeCmd(user,guild,interaction) {
         })
     } else {
         queue.setPaused(false)
+        // const row  = new MessageActionRow()
+        // .addComponents(
+        //     new MessageButton()
+        //     .setCustomId('resume')
+        //     .setLabel('Pause')
+        //     .setStyle('SECONDARY'),
+        // )  
+        
+        // client.on('interactionCreate', interaction => {
+        //     if (!interaction.isButton()) return;
+        //     if (interaction['customId'] == 'resume') {
+        //         queue.setPaused(true)
+        //         interaction.reply({
+        //             content: '👍',
+        //             ephemeral: true
+        //         })
+        //     }
+        // })
+
         interaction.reply({
             embeds: [
                 new MessageEmbed()
                 .setTitle('Resumed the jams!')
                 .setColor(mainHex)
             ],
+            // components: [row],
         })
         cmdRun(user,cmdName)
     }
@@ -606,7 +784,7 @@ function statsCmd(user,guild,interaction) {
             const embed = new MessageEmbed()
                 .setColor(mainHex)
                 .setTitle('Jams Stats')
-                .setThumbnail('https://jamsbot.com/images/logo.png')
+                .setThumbnail('https://jamsbot.com/assets/img/logo.png')
                 .addField("Servers:", `${guilds}`, true)
                 .addField('Users:', `${users}`, true)
                 .addField('CPU %', `${cpuPercentage}`, true)
@@ -619,6 +797,249 @@ function statsCmd(user,guild,interaction) {
             cmdRun(user,cmdName)
         });
     });
+}
+
+// Loop Command
+async function loopCmd(user,guild,interaction) {
+    const cmdName = 'loop'
+
+    const queue = client.player.getQueue(guild.id)
+
+    if (!queue) {
+        const embed = new MessageEmbed()
+        .setTitle('No songs in queue')
+        .setColor('RED')
+        cmdRun(user,cmdName)
+        interaction.reply({
+            embeds: [embed],
+            ephemeral: true
+        })
+    } else {
+        var loopMode = queue.repeatMode
+
+        if (loopMode != 1) {
+            await queue.setRepeatMode(1)
+            const embed = new MessageEmbed() 
+            .setTitle(`Looping ${queue.current.title}`)
+            .setColor(mainHex)
+            interaction.reply({
+                embeds: [embed],
+            })
+            cmdRun(user,cmdName)
+        }
+    }
+}
+
+// Loop Queue Command
+async function loopqueueCmd(user,guild,interaction) {
+    const cmdName = 'loopqueue'
+
+    const queue = client.player.getQueue(guild.id)
+    
+    if (!queue) {
+        const embed = new MessageEmbed()
+        .setTitle('No songs in queue')
+        .setColor('RED')
+        cmdRun(user,cmdName)
+        interaction.reply({
+            embeds: [embed],
+            ephemeral: true
+        })
+    } else {
+        var loopMode = queue.repeatMode
+
+        if (loopMode != 2) {
+            await queue.setRepeatMode(2)
+            const embed = new MessageEmbed() 
+            .setTitle(`Looping queue`)
+            .setColor(mainHex)
+            interaction.reply({
+                embeds: [embed],
+            })
+            cmdRun(user,cmdName)
+        }
+    }
+}
+
+// Stop loop command
+async function stoploopCmd(user,guild,interaction) {
+    const cmdName = 'stoploop'
+
+    const queue = client.player.getQueue(guild.id)
+
+    if (!queue) {
+        const embed = new MessageEmbed()
+        .setTitle('No songs in queue')
+        .setColor('RED')
+        cmdRun(user,cmdName)
+        interaction.reply({
+            embeds: [embed],
+            ephemeral: true
+        })
+    } else {
+        var loopMode = queue.repeatMode
+
+        if (loopMode != 0) {
+            await queue.setRepeatMode(0)
+            const embed = new MessageEmbed() 
+            .setTitle(`Stopped looping`)
+            .setColor(mainHex)
+            interaction.reply({
+                embeds: [embed],
+            })
+            cmdRun(user,cmdName)
+        }
+    }
+}
+
+// Info Command
+function infoCmd(user,guild,interaction) {
+    const cmdName = 'info'
+
+    const embed = new MessageEmbed()
+    .setTitle('Jams Info')
+    .setColor(mainHex)
+    .setThumbnail('https://jamsbot.com/assets/img/logo.png')
+    .setDescription('Jams is the best music bot.')
+    .setFields([
+        { name: 'Prefix', value: 'Jams functions off Discords `\`/`\` command system. So `\`/`\`', inline: false },
+        { name: 'Platforms', value: 'Jams can play music from Spotify, YouTube, Soundcloud, Reverbnation, Vimeo, or Facebook', inline: false },
+        { name: 'Commands', value: 'To view all the commands for Jams, use `\`/help`\`', inline: false },
+        { name: 'Support', value: 'If you need help, click [Here](https://jamsbot.com/support)', inline: false },
+        { name: 'Invite', value: 'If you want to invite the bot you can click [Here](https://jamsbot.com/invite), or click the bots profile', inline: false },
+        { name: 'Links', value: '[🌐 Website](https://jamsbot.com) | [<:invite:823987169978613851> Invite](https://jamsbot.com/invite) | [<:discord:823989269626355793> Support](https://jamsbot.com/support)', inline: false }
+    ])
+    interaction.reply({
+        embeds: [embed],
+    })
+    cmdRun(user,cmdName)
+}
+
+// lyrics command
+async function lyricsCmd(user,guild,interaction) {
+    const cmdName = 'lyrics'
+
+    const queue = client.player.getQueue(guild.id)
+    
+    if (!queue) {
+        const embed = new MessageEmbed()
+        .setTitle('No songs in queue')
+        .setColor('RED')
+        cmdRun(user,cmdName)
+        interaction.reply({
+            embeds: [embed],
+            ephemeral: true
+        })
+    } else {
+        const song = queue.current
+        const songTitle = song.title
+        lyricsClient.search(songTitle)
+            .then(x => {
+                const embed = new MessageEmbed()
+
+                if (x != null) {
+                    embed.setTitle(`Lyrics for ${songTitle}`)
+                    embed.setColor(mainHex)
+                    embed.setDescription(x.lyrics)
+                    embed.setThumbnail(x.thumbnail)
+                    embed.setAuthor({name: `${x.artist.name}`, iconURL: x.artist.image})
+                    interaction.reply({
+                        embeds: [embed],
+                    })
+                } else {
+                    embed.setTitle('Can not get lyrics')
+                    embed.setColor('RED')
+                    interaction.reply({
+                        embeds: [embed],
+                        ephemeral: true
+                    })
+                }
+
+                cmdRun(user,cmdName)
+            })
+            .catch(console.error);
+    }
+}
+
+// volume command
+async function volumeCmd(user,guild,interaction,vol) {
+    const cmdName = 'volume'
+
+    const queue = client.player.getQueue(guild.id) 
+
+    if (!queue) {
+        const embed = new MessageEmbed()
+        .setTitle('No songs in queue')
+        .setColor('RED')
+        interaction.reply({
+            embeds: [embed],
+            ephemeral: true
+        })
+    } else {
+        if (vol > 250) {
+            const embed = new MessageEmbed()
+            .setTitle('Volume too high')
+            .setColor('RED')
+            interaction.reply({
+                embeds: [embed],
+                ephemeral: true
+            })
+        } else {
+            await queue.setVolume(vol)
+            const embed = new MessageEmbed()
+            .setTitle(`Volume set to ${vol}`)
+            .setColor(mainHex)
+            interaction.reply({
+                embeds: [embed],
+            })
+        }
+    }
+    cmdRun(user,cmdName)
+}
+
+async function filterCmd(user,guild,interaction,filter) {
+    const cmdName = 'filter'
+
+    const queue = client.player.getQueue(guild.id)
+
+    if (!queue) {
+        const embed = new MessageEmbed()
+        .setTitle('No songs in queue')
+        .setColor('RED')
+        interaction.reply({
+            embeds: [embed],
+            ephemeral: true
+        })
+    } else {
+        if (filter == 'off') {
+
+            var obj = {}
+            const fEnabled = queue.getFiltersEnabled()
+            obj[fEnabled] = false
+            await queue.setFilters(obj)
+
+            const embed = new MessageEmbed()
+            .setTitle('Filters disabled')
+            .setColor(mainHex)
+            interaction.reply({
+                embeds: [embed],
+            })
+ 
+        } else {
+
+            var obj = {}
+            obj[filter] = !queue.getFiltersEnabled().includes(filter),
+            await queue.setFilters(obj)
+
+            const embed = new MessageEmbed()
+            .setTitle(`Filter set to ${filter}`)
+            .setColor(mainHex)
+            interaction.reply({
+                embeds: [embed],
+            })
+        }
+    }
+    cmdRun(user,cmdName)
 }
 
 // Run bot

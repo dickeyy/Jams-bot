@@ -1,0 +1,168 @@
+body {
+  background-color: #3d3d3d;
+}
+
+img {
+  width: 50px;
+}
+
+.navbar-brand {
+  margin-left: 10px;
+}
+
+.navbar-brand:hover {
+  color: #5063f7;
+}
+
+h1 {
+  color: #5063f7;
+  text-align: center;
+  font-size: 130px;
+  font-weight: 700;
+  margin-top: 80px;
+  --bs-primary: #5063f7;
+  --bs-primary-rgb: 80,99,247;
+  --bs-body-bg: #3d3d3d;
+}
+
+p {
+  color: #6d6d6d;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.btn {
+  margin: auto;
+}
+
+.btn {
+  background-color: #3d3d3d;
+  border: 2px solid #5063f7;
+  border-radius: 13px;
+  font-size: 30px;
+}
+
+.continer {
+  /*display: flex;*/
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  margin: auto;
+  text-align: center;
+  min-width: 90%;
+}
+
+.btn:hover {
+  background-color: #5063f7;
+  border: 2px solid #5063f7;
+}
+
+html {
+}
+
+#accordion-1 {
+  width: 80vw;
+  margin: auto;
+  border-style: none;
+}
+
+.btn {
+  margin: 0px 0px 0px;
+  margin-bottom: 0px;
+}
+
+.accordion-button {
+  background-color: #3d3d3d;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #5063f7;
+  color: white;
+  font-size: 30px;
+  border: 2px none #5063f7 ;
+}
+
+.item-1 {
+  background-color: #3d3d3d;
+  color: white;
+}
+
+p {
+  color: white;
+  font-size: 20px;
+}
+
+.accordion-button {
+  color: white;
+  font-size: 30px;
+  border-style: none;
+}
+
+.nav-link {
+  color: orange;
+}
+
+.btn-footer {
+  background-color: #2d2d2d;
+  font-size: 15px;
+  margin-top: 10px;
+  border-color: #5d5d5c;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.nav-brand:hover {
+  color: #5063f7;
+}
+
+.space-div {
+  height: 30px;
+  background-color: #2d2d2d;
+}
+
+.footer-btn-group {
+  margin-top: -70px;
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+h2 {
+  font-size: 80px;
+  text-align: center;
+  color: #5063f7;
+  font-weight: 700;
+  margin-top: 30px;
+}
+
+.command-card {
+  background-color: #2d2d2d;
+  border-radius: 13px;
+}
+
+.card-custom {
+  border: 3px solid #5063f7;
+  border-radius: 13px;
+  width: 60vw;
+  margin: auto;
+  text-align: center;
+}
+
+.c-title {
+  color: #5063f7;
+  font-weight: 800;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.commands-h4 {
+  color: #7d7d7d;
+  text-align: center;
+  font-style: italic;
+}
+
+.space-div2 {
+  height: 50px;
+}
+
