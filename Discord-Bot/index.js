@@ -10,6 +10,8 @@ const fs = require('fs');
 const osu = require('node-os-utils');
 const { Lyrics, Reverbnation, Facebook, Vimeo } = require("@discord-player/extractor");
 const lyricsClient = Lyrics.init();
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const { VoiceClient } = require('djs-voice')
 
 // Process errors
 process.on('uncaughtException', function (error) {
@@ -37,6 +39,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// Initialize Mongo DB 
+const MongoUri = process.env.MONGO_URI;
+const mdb = new MongoClient(MongoUri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+mdb.connect();
+console.log('Connected to MongoDB')
+
 // Register voice client
 client.player = new Player(client, {
     leaveOnEnd: false,
@@ -51,6 +59,15 @@ client.player.use("reverbnation", Reverbnation);
 client.player.use("facebook", Facebook);
 client.player.use("vimeo", Vimeo)
 console.log('Player Loaded')
+
+// Register Listener Client
+const listenerClient = new VoiceClient({
+    allowBots: false,
+    client: client,
+    debug: false,
+    mongooseConnectionString: MongoUri
+})
+console.log('Listener Client Initialized')
 
 // Write commands and stuff
 const commands = [
@@ -73,6 +90,7 @@ const commands = [
     { name: 'lyrics', description: 'Get the lyrics for the current song' },
     { name: 'volume', description: 'Set the default volume of the bot', options: [{ name: 'level', description: 'The level of the volume you want to set, must be < 250', required: true, type: Constants.ApplicationCommandOptionTypes.NUMBER }] },
     { name: 'filter', description: 'Set a filter for the music', options: [{ name: 'filter', description: 'The filter you want to apply, to get a list of filters', required: true, type: Constants.ApplicationCommandOptionTypes.STRING, choices: [ { name: 'off', value: 'off'}, { name: '3D', value: '3D' }, { name: 'bassboost', value: 'bassboost_high' }, { name: '8D', value: '8D'}, { name: 'vaporwave', value: 'vaporwave' }, { name: 'nightcore', value: 'nightcore' }, { name: 'phaser', value: 'phaser' }, { name: 'tremolo', value: 'tremolo' }, { name: 'vibrato', value: 'vibrato' }, { name: 'reverse', value: 'reverse' }, { name: 'treble', value: 'treble' }, { name: 'normalizer', value: 'normalizer' }, { name: 'surrounding', value: 'surrounding' }, { name: 'pulsator', value: 'pulsator' }, { name: 'subboost', value: 'subboost' }, { name: 'karaoke', value: 'karaoke' }, { name: 'flanger', value: 'flanger' }, { name: 'compressor', value: 'compressor' }, { name: 'expander', value: 'expander' }, { name: 'softlimiter', value: 'softlimiter' }, { name: 'chorus', value: 'chorus' }, { name: 'fadein', value: 'fadein' }, { name: 'earrape', value: 'earrape' }] }] },
+    { name: 'leaderboard', description: 'See a voice activity leaderboard for your server' },
 ]
 
 // Register slash commands
@@ -189,6 +207,10 @@ client.on('interactionCreate', async interaction => {
         const filter = options.getString('filter')
         await filterCmd(user,guild,interaction,filter)
     }
+
+    if (commandName == 'leaderboard') {
+        await leaderboardCmd(user,guild,interaction)
+    }
 });
 
 // Client events
@@ -209,6 +231,18 @@ client.on('guildCreate', async guild => {
     })
 });
 
+// When the bot leaves a server
+client.on('guildDelete', async guild => {
+    deleteDoc(doc(db, 'guilds', guild.id)).then(() => {
+        console.log(`Left Guild -- ${guild.name}`)
+    })
+})
+
+// Stuff for listen time tracking
+client.on('voiceStateUpdate', (oldState, newState) => {
+    listenerClient.startListener(oldState, newState)
+})
+
 // Define command functions
 // Run Command function
 function cmdRun(user,cmdName) {
@@ -228,8 +262,8 @@ function helpCmd(user,guild) {
     .setTitle('Jams Help')
     .setDescription('All the command prefixes are `\`/`\`.\n\n`\`{item}`\` = optional parameter\n`\`[item]`\` = required parameter\n\n')
     .setFields([
-        {name: 'Music Commands:', value: "`\`/play [song]`\`, `\`/queue {page}`\`, `\`/stop`\`, `\`/shuffle`\`, `\`/nowplaying`\`, `\`/pause`\`, `\`/resume`\`, `\`/skip`\`, `\`/skipto [queue number]`\`, `\`/clear`\`, `\`/loop`\`, `\`/loopqueue`\`, `\`/stoploop`\`"},
-        {name: "Misc. Commands:", value: "`\`/stats`\`, `\`/info`\`"},
+        {name: 'Music Commands:', value: "`\`/play [song]`\`, `\`/queue {page}`\`, `\`/stop`\`, `\`/shuffle`\`, `\`/nowplaying`\`, `\`/pause`\`, `\`/resume`\`, `\`/skip`\`, `\`/skipto [queue number]`\`, `\`/clear`\`, `\`/loop`\`, `\`/loopqueue`\`, `\`/stoploop`\`, `\`/lyrics`\`, `\`/volume [number]`\`, `\`/filter [filter name]`\`"},
+        {name: "Misc. Commands:", value: "`\`/stats`\`, `\`/info`\`, `\`/leaderboard`\`"},
         { name: 'Links', value: '[🌐 Website](https://jamsbot.com) | [<:invite:823987169978613851> Invite](https://jamsbot.com/invite) | [<:discord:823989269626355793> Support](https://jamsbot.com/support)', inline: false }
 
     ])
@@ -776,6 +810,7 @@ function statsCmd(user,guild,interaction) {
 
     const guilds = client.guilds.cache.size
     const users = client.users.cache.size
+    console.log(client.guilds.cache)
     const cpu = osu.cpu
     const mem = osu.mem
 
@@ -1039,6 +1074,23 @@ async function filterCmd(user,guild,interaction,filter) {
             })
         }
     }
+    cmdRun(user,cmdName)
+}
+
+// Leaderboard command
+async function leaderboardCmd(user,guild,interaction) {
+    const cmdName = 'leaderboard'
+    const guildId = interaction.guild.id
+
+    const embed = await listenerClient.generateLeaderboard({
+        color: mainHex,
+        guild: interaction.guild,
+        top: 10
+    })
+
+    interaction.reply({
+        embeds: [embed]
+    })
     cmdRun(user,cmdName)
 }
 
