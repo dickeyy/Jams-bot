@@ -4,14 +4,14 @@ const { REST } = require('@discordjs/rest');
 const { Routes, InteractionResponseType } = require('discord-api-types/v9');
 const dotenv = require('dotenv');
 const { initializeApp } = require("firebase/app");
-const { getFirestore, doc, setDoc, getDoc, deleteDoc, Timestamp, addDoc, collection, updateDoc } = require("firebase/firestore");
+const { getFirestore, doc, setDoc, getDoc, deleteDoc, Timestamp, addDoc, collection, updateDoc, getDocs } = require("firebase/firestore");
 const { Player, QueryType } = require('discord-player')
 const fs = require('fs');
 const osu = require('node-os-utils');
 const { Lyrics, Reverbnation, Facebook, Vimeo } = require("@discord-player/extractor");
 const lyricsClient = Lyrics.init();
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const { VoiceClient } = require('djs-voice')
+const { VoiceClient } = require('djs-voice');
 
 // Process errors
 process.on('uncaughtException', function (error) {
@@ -38,11 +38,13 @@ const firebaseConfig = {
 // Initialize Firebase Stuff
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+console.log('Firebase Initialized')
 
 // Initialize Mongo DB 
 const MongoUri = process.env.MONGO_URI;
-const mdb = new MongoClient(MongoUri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-mdb.connect();
+const mClient = new MongoClient(MongoUri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+mClient.connect();
+const mdb = mClient.db('jams-bot');
 console.log('Connected to MongoDB')
 
 // Register voice client
@@ -94,17 +96,17 @@ const commands = [
 ]
 
 // Register slash commands
-const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
-// const rest = new REST({ version: '9' }).setToken(process.env.BETA_TOKEN);
+// const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
+const rest = new REST({ version: '9' }).setToken(process.env.BETA_TOKEN);
 
 (async () => {
     try {
       console.log('Started refreshing application (/) commands.');
   
       await rest.put(
-        //   Routes.applicationGuildCommands(process.env.BETA_APP_ID, '801360477984522260', '961272863363567636'),
+          Routes.applicationGuildCommands(process.env.BETA_APP_ID, '801360477984522260', '961272863363567636'),
         //   { body: commands },
-          Routes.applicationCommands(process.env.APP_ID),
+        //   Routes.applicationCommands(process.env.APP_ID),
         //   Routes.applicationCommands(process.env.BETA_APP_ID),
           {body: commands},
       );
@@ -216,7 +218,9 @@ client.on('interactionCreate', async interaction => {
 // Client events
 // when bot joins a new server
 client.on('guildCreate', async guild => {
-    setDoc(doc(db, 'guilds', guild.id), {
+    const isPartnered = guild.partnered
+    const guildData = {
+        _id: guild.id,
         id: guild.id,
         name: guild.name,
         description: guild.description,
@@ -225,17 +229,32 @@ client.on('guildCreate', async guild => {
         vanityUrl: guild.vanityURLCode,
         joinedAt: Timestamp.now(),
         ownerId: guild.ownerId,
-        shardId: guild.shardId
-    }).then(() => {
-        console.log(`New Guild -- ${guild.name}`)
-    })
+        shardId: guild.shardId,
+        bannerUrl: guild.banner,
+        features: guild.features,
+        icon: guild.icon,
+        maxMembers: guild.maximumMembers,
+        partnered: isPartnered,
+    }
+
+    const collection = mdb.collection('guilds');
+    await collection.insertOne(guildData);
+
+    console.log(`New Guild -- ${guild.name}`)
 });
 
 // When the bot leaves a server
 client.on('guildDelete', async guild => {
-    deleteDoc(doc(db, 'guilds', guild.id)).then(() => {
-        console.log(`Left Guild -- ${guild.name}`)
-    })
+    const collection = mdb.collection('guilds');
+    await collection.deleteOne({ _id: guild.id })
+    console.log(`Left Guild -- ${guild.name}`)
+})
+
+// Update Guild Data in DB events
+// When user joins guild
+client.on('guildMemberAdd', async member => {
+    console.log('ahhhhh')
+    console.log(member)
 })
 
 // Stuff for listen time tracking
@@ -246,12 +265,15 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 // Define command functions
 // Run Command function
 function cmdRun(user,cmdName) {
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     getDoc(doc(db, 'commands', cmdName)).then(docData => {
         var runCount = docData.data()['runCount']
         runCount ++
         updateDoc(doc(db, 'commands', cmdName), {runCount: runCount})
     })
-    console.log(`${user.tag} -- ${cmdName}`)
+    console.log(`${date} ${time} | ${user.tag} -- ${cmdName}`)
 }
 
 // Help Command
@@ -809,10 +831,9 @@ function statsCmd(user,guild,interaction) {
     const cmdName = 'stats'
 
     const guilds = client.guilds.cache.size
-    const users = client.users.cache.size
-    console.log(client.guilds.cache)
     const cpu = osu.cpu
     const mem = osu.mem
+    const uptime = Math.round(client.uptime / 1000 / 60 / 60 / 24)
 
     cpu.usage().then(cpuPercentage => {
         mem.info().then(info => {
@@ -821,11 +842,12 @@ function statsCmd(user,guild,interaction) {
                 .setTitle('Jams Stats')
                 .setThumbnail('https://jamsbot.com/assets/img/logo.png')
                 .addField("Servers:", `${guilds}`, true)
-                .addField('Users:', `${users}`, true)
-                .addField('CPU %', `${cpuPercentage}`, true)
-                .addField('Mem. %', `${info.freeMemPercentage}%`, true)
-                .addField('Ping', `${Math.round(client.ws.ping)}ms`, true)
+                .addField('CPU %:', `${cpuPercentage}`, true)
+                .addField('Mem. %:', `${info.freeMemPercentage}%`, true)
+                .addField('Ping:', `${Math.round(client.ws.ping)}ms`, true)
+                .addField('Uptime:', `${uptime} Days`, true)
                 .addField('Library:', 'Discord.JS', true)
+                .addField('Links', '[🌐 Website](https://jamsbot.com) | [<:invite:823987169978613851> Invite](https://jamsbot.com/invite) | [<:discord:823989269626355793> Support](https://jamsbot.com/support) | [<:upvote:823988328306049104> Vote](https://top.gg/bot/935801319569104948/vote)')
             interaction.reply({
                 embeds: [embed],
             })
@@ -942,7 +964,7 @@ function infoCmd(user,guild,interaction) {
         { name: 'Commands', value: 'To view all the commands for Jams, use `\`/help`\`', inline: false },
         { name: 'Support', value: 'If you need help, click [Here](https://jamsbot.com/support)', inline: false },
         { name: 'Invite', value: 'If you want to invite the bot you can click [Here](https://jamsbot.com/invite), or click the bots profile', inline: false },
-        { name: 'Links', value: '[🌐 Website](https://jamsbot.com) | [<:invite:823987169978613851> Invite](https://jamsbot.com/invite) | [<:discord:823989269626355793> Support](https://jamsbot.com/support)', inline: false }
+        { name: 'Links', value: '[🌐 Website](https://jamsbot.com) | [<:invite:823987169978613851> Invite](https://jamsbot.com/invite) | [<:discord:823989269626355793> Support](https://jamsbot.com/support) | [<:upvote:823988328306049104> Vote](https://top.gg/bot/935801319569104948/vote) | [<:upvote:823988328306049104> Vote](https://top.gg/bot/935801319569104948/vote)', inline: false }
     ])
     interaction.reply({
         embeds: [embed],
@@ -1095,5 +1117,5 @@ async function leaderboardCmd(user,guild,interaction) {
 }
 
 // Run bot
-client.login(process.env.TOKEN);
-// client.login(process.env.BETA_TOKEN);
+// client.login(process.env.TOKEN);
+client.login(process.env.BETA_TOKEN);
