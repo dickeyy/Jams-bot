@@ -3,6 +3,7 @@
     "@discord-player/extractor": "^3.0.2",
     "@discordjs/rest": "^0.3.0",
     "@discordjs/voice": "^0.8.0",
+    "axios": "^0.26.1",
     "discord": "^0.8.2",
     "discord-api-types": "^0.31.0",
     "discord-player": "^5.2.2",
@@ -12,7 +13,9 @@
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^4.4.1",
     "firebase": "^9.6.10",
+    "lavacord": "^1.1.9",
     "mongodb": "^4.5.0",
+    "node-fetch": "^3.2.3",
     "node-os-utils": "^1.3.6",
     "opusscript": "^0.0.8"
   },

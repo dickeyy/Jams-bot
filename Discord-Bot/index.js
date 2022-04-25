@@ -12,6 +12,8 @@ const { Lyrics, Reverbnation, Facebook, Vimeo } = require("@discord-player/extra
 const lyricsClient = Lyrics.init();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const { VoiceClient } = require('djs-voice');
+const { Manager } = require("lavacord");
+const axios = require('axios').default
 
 // Process errors
 process.on('uncaughtException', function (error) {
@@ -71,6 +73,24 @@ const listenerClient = new VoiceClient({
 })
 console.log('Listener Client Initialized')
 
+// connect to lavalink server
+const nodes = [
+    { id: "1", host: "localhost", port: 2333, password: "pooppooppassword" }
+];
+const lava = new Manager(nodes,{
+    user: '819019613371236432',
+    shards: 0,
+    send: (packet) => {
+        if (client.guilds.cache) {
+            const guild = client.guilds.cache.get(packet.d.guild_id);
+            if (guild) return guild.shard.send(packet);
+        }
+    }
+})
+lava.on('error', (err, node) => {
+    console.log(`Lavalink error on node ${node.id} -- Error: ${err}`)
+})
+
 // Write commands and stuff
 const commands = [
     { name: 'help', description: 'See all available commands' },
@@ -93,6 +113,8 @@ const commands = [
     { name: 'volume', description: 'Set the default volume of the bot', options: [{ name: 'level', description: 'The level of the volume you want to set, must be < 250', required: true, type: Constants.ApplicationCommandOptionTypes.NUMBER }] },
     { name: 'filter', description: 'Set a filter for the music', options: [{ name: 'filter', description: 'The filter you want to apply, to get a list of filters', required: true, type: Constants.ApplicationCommandOptionTypes.STRING, choices: [ { name: 'off', value: 'off'}, { name: '3D', value: '3D' }, { name: 'bassboost', value: 'bassboost_high' }, { name: '8D', value: '8D'}, { name: 'vaporwave', value: 'vaporwave' }, { name: 'nightcore', value: 'nightcore' }, { name: 'phaser', value: 'phaser' }, { name: 'tremolo', value: 'tremolo' }, { name: 'vibrato', value: 'vibrato' }, { name: 'reverse', value: 'reverse' }, { name: 'treble', value: 'treble' }, { name: 'normalizer', value: 'normalizer' }, { name: 'surrounding', value: 'surrounding' }, { name: 'pulsator', value: 'pulsator' }, { name: 'subboost', value: 'subboost' }, { name: 'karaoke', value: 'karaoke' }, { name: 'flanger', value: 'flanger' }, { name: 'compressor', value: 'compressor' }, { name: 'expander', value: 'expander' }, { name: 'softlimiter', value: 'softlimiter' }, { name: 'chorus', value: 'chorus' }, { name: 'fadein', value: 'fadein' }, { name: 'earrape', value: 'earrape' }] }] },
     { name: 'leaderboard', description: 'See a voice activity leaderboard for your server' },
+
+    {name: 'lavaplay', description: 'lava join', options: [{ name: 'song', description: 'song balls', required: true, type: Constants.ApplicationCommandOptionTypes.STRING }]}
 ]
 
 // Register slash commands
@@ -104,7 +126,7 @@ const rest = new REST({ version: '9' }).setToken(process.env.BETA_TOKEN);
       console.log('Started refreshing application (/) commands.');
   
       await rest.put(
-          Routes.applicationGuildCommands(process.env.BETA_APP_ID, '801360477984522260', '961272863363567636'),
+          Routes.applicationGuildCommands(process.env.BETA_APP_ID, '801360477984522260', '961272863363567636', '731445738290020442'),
         //   { body: commands },
         //   Routes.applicationCommands(process.env.APP_ID),
         //   Routes.applicationCommands(process.env.BETA_APP_ID),
@@ -120,6 +142,9 @@ const rest = new REST({ version: '9' }).setToken(process.env.BETA_TOKEN);
 // When the bot is ready
 client.on('ready', () => {
     client.user.setActivity('/help', { type: 'LISTENING' });
+    lava.connect().then(success => {
+        console.log('Lavalink Server Connected')
+    });
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
@@ -212,6 +237,11 @@ client.on('interactionCreate', async interaction => {
 
     if (commandName == 'leaderboard') {
         await leaderboardCmd(user,guild,interaction)
+    }
+
+    if (commandName == 'lavaplay') {
+        const search = options.getString('song')
+        await lavalinkJoin(user, guild, interaction, search)
     }
 });
 
@@ -1114,6 +1144,68 @@ async function leaderboardCmd(user,guild,interaction) {
         embeds: [embed]
     })
     cmdRun(user,cmdName)
+}
+
+// LAVALINK TESTING
+// lavalink play
+async function lavalinkJoin(user, guild, interaction, search) {
+    
+    if (!interaction.member.voice.channel) {
+        const embed = new MessageEmbed()
+        .setTitle('Error: You are not in a voice channel')
+        .setColor('RED')
+        interaction.reply({
+            embeds: [embed],
+            ephemeral: true
+        })
+    } else {
+
+        const songs = await getSongs(`ytsearch:${search}`)
+        const track = songs.data.tracks[0]
+        console.log(track)
+        const player = await lava.join({
+            guild: guild.id, // Guild id
+            channel: interaction.member.voice.channel.id, // Channel id
+            node: "1" // lavalink node id, based on array of nodes
+        }, {
+            selfdeaf: true
+        });
+
+        const playing = await lavaplay(player, track)
+
+        if (playing) {
+            console.log(player)
+        }
+
+        player.once("error", error => console.error(error));
+    
+        interaction.reply({
+            content: 'ass'
+        })
+    }
+}
+
+// play function
+async function lavaplay(player,track) {
+    const playing = await player.play(track.track)
+    return playing
+}
+
+// Get song function
+async function getSongs(search) {
+    const node = lava.idealNodes[0];
+
+    const params = new URLSearchParams();
+    params.append("identifier", search);
+
+    const request = await axios({
+        method: 'get',
+        url: `http://${node.host}:${node.port}/loadtracks?${params}`,
+        responseType: 'json',
+        headers: { Authorization: node.password }
+    })
+
+    return request
 }
 
 // Run bot
