@@ -43,7 +43,7 @@ const mainHex = "#5063f7"
 // console.log('Firebase Initialized')
 
 // Initialize Mongo DB 
-const MongoUri = process.env.MONGO_URI;
+const MongoUri = 'mongodb+srv://kyledickey:CL46qBaMu3def3fT@jamsbot.90bmz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const mClient = new MongoClient(MongoUri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 mClient.connect();
 const mdb = mClient.db('jams-bot');
