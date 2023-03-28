@@ -1,0 +1,817 @@
+2022-08-21 18:58:25.342  INFO 58241 --- [main] lavalink.server.Launcher                 : 
+
+[32m       .  [31m _                  _ _       _    [32m__ _ _
+[32m      /\\ [31m| | __ ___   ____ _| (_)_ __ | | __[32m\ \ \ \
+[32m     ( ( )[31m| |/ _` \ \ / / _` | | | '_ \| |/ /[32m \ \ \ \
+[32m      \\/ [31m| | (_| |\ V / (_| | | | | | |   < [32m  ) ) ) )
+[32m       '  [31m|_|\__,_| \_/ \__,_|_|_|_| |_|_|\_\[32m / / / /
+[0m    =========================================[32m/_/_/_/[0m
+
+	Version:        3.4
+	Build:          1257
+	Build time:     26.10.2021 14:18:37 UTC
+	Branch          master
+	Commit:         a364833
+	Commit time:    26.10.2021 14:15:20 UTC
+	JVM:            17.0.2
+	Lavaplayer      1.3.96-original
+
+2022-08-21 18:58:25.404  INFO 58241 --- [main] lavalink.server.Launcher                 : Starting Launcher on kyles-mbp.lan with PID 58241 (/Users/kyledickey/Documents/Code/Jams-bot/new-bot/lava-server/Lavalink.jar started by kyledickey in /Users/kyledickey/Documents/Code/Jams-bot/new-bot/lava-server)
+2022-08-21 18:58:25.405  INFO 58241 --- [main] lavalink.server.Launcher                 : No active profile set, falling back to default profiles: default
+2022-08-21 18:58:25.896  WARN 58241 --- [main] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2022-08-21 18:58:25.919  INFO 58241 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
+2022-08-21 18:58:25.919  INFO 58241 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 487 ms
+2022-08-21 18:58:26.090  WARN 58241 --- [main] l.server.config.SentryConfiguration      : Turning off sentry
+2022-08-21 18:58:26.256  INFO 58241 --- [main] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
+2022-08-21 18:58:26.345  INFO 58241 --- [main] lavalink.server.config.KoeConfiguration  : OS: Mac OS X, Arch: aarch64
+2022-08-21 18:58:26.345  WARN 58241 --- [main] lavalink.server.config.KoeConfiguration  : This system and architecture appears to not support native audio sending! GC pauses may cause your bot to stutter during playback.
+2022-08-21 18:58:26.447  INFO 58241 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-21 18:58:26.599  INFO 58241 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
+2022-08-21 18:58:26.604  INFO 58241 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
+2022-08-21 18:58:26.657  INFO 58241 --- [main] o.s.b.w.e.u.UndertowServletWebServer     : Undertow started on port(s) 2333 (http) with context path ''
+2022-08-21 18:58:26.661  INFO 58241 --- [main] lavalink.server.Launcher                 : Started Launcher in 1.609 seconds (JVM running for 2.0)
+2022-08-21 18:58:26.662  INFO 58241 --- [main] lavalink.server.Launcher                 : You can safely ignore the big red warning about illegal reflection. See https://github.com/freyacodes/Lavalink/issues/295
+2022-08-21 18:58:47.936  INFO 58241 --- [XNIO-1 task-1] io.undertow.servlet                      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-21 18:58:47.937  INFO 58241 --- [XNIO-1 task-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-21 18:58:47.942  INFO 58241 --- [XNIO-1 task-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2022-08-21 18:58:47.959  INFO 58241 --- [XNIO-1 task-1] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:58541
+2022-08-21 18:58:47.996  INFO 58241 --- [XNIO-1 task-1] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 18:58:47.997  WARN 58241 --- [XNIO-1 task-1] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:00:00.838  INFO 58241 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:58541 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:00:00.840  INFO 58241 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:00:01.997  INFO 58241 --- [XNIO-1 task-2] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:58602
+2022-08-21 19:00:02.004  INFO 58241 --- [XNIO-1 task-2] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:00:02.004  WARN 58241 --- [XNIO-1 task-2] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:00:13.254  INFO 58241 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:58602 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:00:13.258  INFO 58241 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:05:17.427  INFO 58241 --- [XNIO-1 task-3] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:58917
+2022-08-21 19:05:17.437  INFO 58241 --- [XNIO-1 task-3] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:05:17.437  WARN 58241 --- [XNIO-1 task-3] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:07:58.886  INFO 58241 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:58917 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:07:58.888  INFO 58241 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:08:00.207  INFO 58241 --- [XNIO-1 task-4] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59105
+2022-08-21 19:08:00.211  INFO 58241 --- [XNIO-1 task-4] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:08:00.211  WARN 58241 --- [XNIO-1 task-4] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:08:12.138  INFO 58241 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59105 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:08:12.141  INFO 58241 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:09:22.190  INFO 58241 --- [XNIO-1 task-5] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59179
+2022-08-21 19:09:22.200  INFO 58241 --- [XNIO-1 task-5] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:09:22.200  WARN 58241 --- [XNIO-1 task-5] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:09:32.524  INFO 58241 --- [XNIO-1 I/O-7] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59179 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:09:32.528  INFO 58241 --- [XNIO-1 I/O-7] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:12:04.914  INFO 58241 --- [XNIO-1 task-6] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59407
+2022-08-21 19:12:04.923  INFO 58241 --- [XNIO-1 task-6] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:12:04.923  WARN 58241 --- [XNIO-1 task-6] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:12:39.349  INFO 58241 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59407 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:12:39.352  INFO 58241 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:12:56.510  INFO 58241 --- [XNIO-1 task-7] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59485
+2022-08-21 19:12:56.515  INFO 58241 --- [XNIO-1 task-7] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:12:56.516  WARN 58241 --- [XNIO-1 task-7] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:14:26.815  INFO 58241 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59485 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:14:26.818  INFO 58241 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:14:27.963  INFO 58241 --- [XNIO-1 task-8] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59564
+2022-08-21 19:14:27.967  INFO 58241 --- [XNIO-1 task-8] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:14:27.968  WARN 58241 --- [XNIO-1 task-8] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:14:40.295  INFO 58241 --- [XNIO-1 I/O-8] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59564 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:14:40.299  INFO 58241 --- [XNIO-1 I/O-8] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:14:41.365  INFO 58241 --- [XNIO-1 task-9] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59587
+2022-08-21 19:14:41.368  INFO 58241 --- [XNIO-1 task-9] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:14:41.368  WARN 58241 --- [XNIO-1 task-9] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:20:32.995  INFO 58241 --- [XNIO-1 I/O-7] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59587 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:20:32.998  INFO 58241 --- [XNIO-1 I/O-7] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:20:34.484  INFO 58241 --- [XNIO-1 task-10] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59956
+2022-08-21 19:20:34.494  INFO 58241 --- [XNIO-1 task-10] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:20:34.494  WARN 58241 --- [XNIO-1 task-10] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:20:49.195  INFO 58241 --- [XNIO-1 I/O-8] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59956 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:20:49.197  INFO 58241 --- [XNIO-1 I/O-8] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:21:12.791  INFO 58241 --- [XNIO-1 task-11] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59995
+2022-08-21 19:21:12.796  INFO 58241 --- [XNIO-1 task-11] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:21:12.797  WARN 58241 --- [XNIO-1 task-11] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:21:45.283  INFO 58241 --- [XNIO-1 I/O-7] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59995 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:21:45.286  INFO 58241 --- [XNIO-1 I/O-7] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:21:46.202  INFO 58241 --- [XNIO-1 task-12] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60039
+2022-08-21 19:21:46.208  INFO 58241 --- [XNIO-1 task-12] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:21:46.208  WARN 58241 --- [XNIO-1 task-12] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:22:09.675  INFO 58241 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60039 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:22:09.677  INFO 58241 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:22:11.022  INFO 58241 --- [XNIO-1 task-13] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60068
+2022-08-21 19:22:11.029  INFO 58241 --- [XNIO-1 task-13] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:22:11.030  WARN 58241 --- [XNIO-1 task-13] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:24:25.198  INFO 58241 --- [XNIO-1 I/O-8] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60068 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:24:25.200  INFO 58241 --- [XNIO-1 I/O-8] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:24:26.154  INFO 58241 --- [XNIO-1 task-14] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60243
+2022-08-21 19:24:26.162  INFO 58241 --- [XNIO-1 task-14] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:24:26.162  WARN 58241 --- [XNIO-1 task-14] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:24:33.328  INFO 58241 --- [XNIO-1 task-15] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "colder weather"
+2022-08-21 19:24:33.341  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : No matches found
+2022-08-21 19:25:10.949  INFO 58241 --- [XNIO-1 task-17] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:colder weather"
+2022-08-21 19:25:11.944  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: colder weather
+2022-08-21 19:29:46.794  INFO 58241 --- [XNIO-1 task-19] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "spotifysearch:Colder weather"
+2022-08-21 19:29:46.797  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : No matches found
+2022-08-21 19:30:03.209  INFO 58241 --- [XNIO-1 task-21] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "spsearch: weather"
+2022-08-21 19:30:03.211  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : No matches found
+2022-08-21 19:30:52.360  INFO 58241 --- [XNIO-1 task-23] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "spsearch:weather"
+2022-08-21 19:30:52.363  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : No matches found
+2022-08-21 19:36:23.151  INFO 58241 --- [XNIO-1 task-25] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:https://www.youtube.com/watch?v=wRAkM2okaNI"
+2022-08-21 19:36:23.757  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: https://www.youtube.com/watch?v=wRAkM2okaNI
+2022-08-21 19:36:42.724  INFO 58241 --- [XNIO-1 task-27] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:https://open.spotify.com/track/0lxt6J01WBpovNFVF87Yqa?si=84cd9e9f0be94577"
+2022-08-21 19:36:43.102  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : No matches found
+2022-08-21 19:37:42.893  INFO 58241 --- [XNIO-1 I/O-7] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60243 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:37:42.895  INFO 58241 --- [XNIO-1 I/O-7] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:40:09.455  INFO 58241 --- [XNIO-1 task-29] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:61225
+2022-08-21 19:40:09.461  INFO 58241 --- [XNIO-1 task-29] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:40:09.461  WARN 58241 --- [XNIO-1 task-29] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:40:15.573  INFO 58241 --- [XNIO-1 task-30] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:colder weather"
+2022-08-21 19:40:16.227  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: colder weather
+2022-08-21 19:40:19.665  INFO 58241 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:61225 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:40:19.665  INFO 58241 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:40:50.351  INFO 58241 --- [XNIO-1 task-32] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:61299
+2022-08-21 19:40:50.362  INFO 58241 --- [XNIO-1 task-32] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:40:50.362  WARN 58241 --- [XNIO-1 task-32] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:40:52.641  INFO 58241 --- [XNIO-1 task-33] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:colder weather"
+2022-08-21 19:40:53.910  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: colder weather
+2022-08-21 19:44:02.925  INFO 58241 --- [XNIO-1 I/O-7] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:61299 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:44:02.926  INFO 58241 --- [XNIO-1 I/O-7] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:44:03.961  INFO 58241 --- [XNIO-1 task-35] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:61563
+2022-08-21 19:44:03.966  INFO 58241 --- [XNIO-1 task-35] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:44:03.966  WARN 58241 --- [XNIO-1 task-35] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:44:09.592  INFO 58241 --- [XNIO-1 task-36] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:colder weather"
+2022-08-21 19:44:10.183  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: colder weather
+2022-08-21 19:44:14.172  INFO 58241 --- [XNIO-1 I/O-7] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:61563 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:44:14.174  INFO 58241 --- [XNIO-1 I/O-7] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:45:47.718  INFO 58241 --- [XNIO-1 task-38] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:61676
+2022-08-21 19:45:47.724  INFO 58241 --- [XNIO-1 task-38] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:45:47.724  WARN 58241 --- [XNIO-1 task-38] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:45:56.371  INFO 58241 --- [XNIO-1 I/O-8] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:61676 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:45:56.372  INFO 58241 --- [XNIO-1 I/O-8] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:46:10.448  INFO 58241 --- [XNIO-1 task-39] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:61704
+2022-08-21 19:46:10.457  INFO 58241 --- [XNIO-1 task-39] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:46:10.457  WARN 58241 --- [XNIO-1 task-39] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:46:15.175  INFO 58241 --- [XNIO-1 task-40] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:colder weather"
+2022-08-21 19:46:15.835  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: colder weather
+2022-08-21 19:46:18.095  INFO 58241 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:61704 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:46:18.095  INFO 58241 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:47:52.426  INFO 58241 --- [XNIO-1 task-42] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:61804
+2022-08-21 19:47:52.432  INFO 58241 --- [XNIO-1 task-42] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:47:52.432  WARN 58241 --- [XNIO-1 task-42] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:47:58.492  INFO 58241 --- [XNIO-1 task-43] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:colder weather"
+2022-08-21 19:47:59.003  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: colder weather
+2022-08-21 19:48:03.238  INFO 58241 --- [XNIO-1 I/O-8] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:61804 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:48:03.239  INFO 58241 --- [XNIO-1 I/O-8] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:48:53.212  INFO 58241 --- [XNIO-1 task-45] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:61901
+2022-08-21 19:48:53.220  INFO 58241 --- [XNIO-1 task-45] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:48:53.221  WARN 58241 --- [XNIO-1 task-45] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:48:57.568  INFO 58241 --- [XNIO-1 task-46] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:colder weather"
+2022-08-21 19:48:58.072  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: colder weather
+2022-08-21 19:48:59.549  INFO 58241 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:61901 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:48:59.550  INFO 58241 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:49:07.715  INFO 58241 --- [XNIO-1 task-48] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:61930
+2022-08-21 19:49:07.727  INFO 58241 --- [XNIO-1 task-48] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:49:07.727  WARN 58241 --- [XNIO-1 task-48] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:49:11.373  INFO 58241 --- [XNIO-1 task-49] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:colder weather"
+2022-08-21 19:49:11.998  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: colder weather
+2022-08-21 19:49:13.350  INFO 58241 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:61930 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:49:13.351  INFO 58241 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:49:35.706  INFO 58241 --- [XNIO-1 task-51] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:61968
+2022-08-21 19:49:35.711  INFO 58241 --- [XNIO-1 task-51] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:49:35.714  WARN 58241 --- [XNIO-1 task-51] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:49:41.579  INFO 58241 --- [XNIO-1 task-52] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:colder weather"
+2022-08-21 19:49:42.174  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: colder weather
+2022-08-21 19:49:42.205  INFO 58241 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"track":"QAAAtgIATlphYyBCcm93biBCYW5kIC0gQ29sZGVyIFdlYXRoZXIgKE9mZmljaWFsIE11c2ljIFZpZGVvKSB8IFlvdSBHZXQgV2hhdCBZb3UgR2l2ZQAOWmFjIEJyb3duIEJhbmQAAAAAAARVYAALb291RkU1MUhjcU0AAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1vb3VGRTUxSGNxTQAHeW91dHViZQAAAAAAAAAA","op":"play","guildId":"731445738290020442"}
+2022-08-21 19:49:48.053  INFO 58241 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:61968 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:49:48.055  INFO 58241 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 1 playing players.
+2022-08-21 19:50:06.905  INFO 58241 --- [XNIO-1 task-54] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:62020
+2022-08-21 19:50:06.908  INFO 58241 --- [XNIO-1 task-54] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:50:06.908  WARN 58241 --- [XNIO-1 task-54] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:50:10.459  INFO 58241 --- [XNIO-1 task-55] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:colder weather"
+2022-08-21 19:50:11.002  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: colder weather
+2022-08-21 19:50:11.020  INFO 58241 --- [XNIO-1 I/O-8] lavalink.server.io.SocketServer          : {"track":"QAAAtgIATlphYyBCcm93biBCYW5kIC0gQ29sZGVyIFdlYXRoZXIgKE9mZmljaWFsIE11c2ljIFZpZGVvKSB8IFlvdSBHZXQgV2hhdCBZb3UgR2l2ZQAOWmFjIEJyb3duIEJhbmQAAAAAAARVYAALb291RkU1MUhjcU0AAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1vb3VGRTUxSGNxTQAHeW91dHViZQAAAAAAAAAA","op":"play","guildId":"731445738290020442"}
+2022-08-21 19:50:20.693  INFO 58241 --- [XNIO-1 I/O-8] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:62020 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:50:20.695  INFO 58241 --- [XNIO-1 I/O-8] lavalink.server.io.SocketContext         : Shutting down 1 playing players.
+2022-08-21 19:50:21.730  INFO 58241 --- [XNIO-1 task-57] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:62047
+2022-08-21 19:50:21.733  INFO 58241 --- [XNIO-1 task-57] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:50:21.733  WARN 58241 --- [XNIO-1 task-57] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:50:27.405  INFO 58241 --- [XNIO-1 task-58] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:colder weather"
+2022-08-21 19:50:28.011  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: colder weather
+2022-08-21 19:50:28.021  INFO 58241 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : {"track":"QAAAtgIATlphYyBCcm93biBCYW5kIC0gQ29sZGVyIFdlYXRoZXIgKE9mZmljaWFsIE11c2ljIFZpZGVvKSB8IFlvdSBHZXQgV2hhdCBZb3UgR2l2ZQAOWmFjIEJyb3duIEJhbmQAAAAAAARVYAALb291RkU1MUhjcU0AAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1vb3VGRTUxSGNxTQAHeW91dHViZQAAAAAAAAAA","op":"play","guildId":"731445738290020442"}
+2022-08-21 19:51:26.578  INFO 58241 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:62047 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:51:26.581  INFO 58241 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 1 playing players.
+2022-08-21 19:51:43.587  INFO 58241 --- [XNIO-1 task-60] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:62117
+2022-08-21 19:51:43.591  INFO 58241 --- [XNIO-1 task-60] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:51:43.591  WARN 58241 --- [XNIO-1 task-60] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:51:49.931  INFO 58241 --- [XNIO-1 task-61] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:colder"
+2022-08-21 19:51:50.452  INFO 58241 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: colder
+2022-08-21 19:51:50.465  INFO 58241 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : {"track":"QAAAbwIADFtZVFBdIENvbGRlcgAJTnVtYmVyZXIxAAAAAAAC+bgAC3Rqcm1lbmcwb1M0AAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9dGpybWVuZzBvUzQAB3lvdXR1YmUAAAAAAAAAAA==","op":"play","guildId":"731445738290020442"}
+2022-08-21 19:52:43.134  INFO 58241 --- [Thread-1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-08-21 19:52:43.142  INFO 58241 --- [Thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
+2022-08-21 19:52:43.155  WARN 58241 --- [lava-daemon-pool-playback-1-thread-1] c.s.d.l.t.p.LocalAudioTrackExecutor      : Suspicious exception for playback of tjrmeng0oS4
+
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: The track was unexpectedly terminated.
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.handlePlaybackInterrupt(LocalAudioTrackExecutor.java:347) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.executeProcessingLoop(LocalAudioTrackExecutor.java:291) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.executeProcessingLoop(LocalAudioTrackExecutor.java:249) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaAudioTrack.process(MatroskaAudioTrack.java:38) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.DelegatedAudioTrack.processDelegate(DelegatedAudioTrack.java:25) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.processStatic(YoutubeAudioTrack.java:57) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:49) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:104) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:348) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+	Suppressed: com.sedmelluq.discord.lavaplayer.tools.exception.EnvironmentInformation: 
+  lavaplayer.version: 1.3.96-original
+  os.arch: aarch64
+  os.name: Mac OS X
+  os.version: 12.3.1
+  java.vendor: Eclipse Adoptium
+  java.version: 17.0.2
+  java.runtime.version: 17.0.2+8
+  java.vm.version: 17.0.2+8
+Caused by: java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1638) ~[na:na]
+	at java.base/java.util.concurrent.ArrayBlockingQueue.put(ArrayBlockingQueue.java:370) ~[na:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.AllocatingAudioFrameBuffer.consume(AllocatingAudioFrameBuffer.java:178) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.common.OpusPacketRouter.passThrough(OpusPacketRouter.java:168) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.common.OpusPacketRouter.process(OpusPacketRouter.java:98) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaOpusTrackConsumer.consume(MatroskaOpusTrackConsumer.java:46) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.processFrameInBlock(MatroskaStreamingFile.java:371) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.parseClusterSimpleBlock(MatroskaStreamingFile.java:335) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.parseNextCluster(MatroskaStreamingFile.java:320) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.provideFrames(MatroskaStreamingFile.java:296) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaAudioTrack.lambda$process$0(MatroskaAudioTrack.java:39) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.executeProcessingLoop(LocalAudioTrackExecutor.java:275) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	... 10 common frames omitted
+
+2022-08-21 19:52:43.159  INFO 58241 --- [Thread-1] io.undertow.servlet                      : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2022-08-21 19:52:43.165 ERROR 58241 --- [XNIO-1 I/O-1] org.xnio.listener                        : XNIO001007: A channel event listener threw an exception
+
+java.util.concurrent.RejectedExecutionException: XNIO007007: Thread is terminating
+	at org.xnio.nio.WorkerThread.execute(WorkerThread.java:590) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.websockets.jsr.UndertowSession$3.handleEvent(UndertowSession.java:396) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.UndertowSession$3.handleEvent(UndertowSession.java:388) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameCloseListener.handleEvent(AbstractFramedChannel.java:1063) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameCloseListener.handleEvent(AbstractFramedChannel.java:978) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.conduits.WriteReadyHandler$ChannelListenerHandler.terminated(WriteReadyHandler.java:70) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.writeTerminated(NioSocketConduit.java:234) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.terminateWrites(NioSocketConduit.java:223) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.truncateWrites(NioSocketConduit.java:228) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.conduits.IdleTimeoutConduit.truncateWrites(IdleTimeoutConduit.java:387) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.conduits.ConduitStreamSinkChannel.close(ConduitStreamSinkChannel.java:186) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.IoUtils.safeClose(IoUtils.java:134) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.conduits.WriteReadyHandler$ChannelListenerHandler.forceTermination(WriteReadyHandler.java:57) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.forceTermination(NioSocketConduit.java:107) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:494) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+
+2022-08-21 19:52:45.600  INFO 59885 --- [main] lavalink.server.Launcher                 : 
+
+[32m       .  [31m _                  _ _       _    [32m__ _ _
+[32m      /\\ [31m| | __ ___   ____ _| (_)_ __ | | __[32m\ \ \ \
+[32m     ( ( )[31m| |/ _` \ \ / / _` | | | '_ \| |/ /[32m \ \ \ \
+[32m      \\/ [31m| | (_| |\ V / (_| | | | | | |   < [32m  ) ) ) )
+[32m       '  [31m|_|\__,_| \_/ \__,_|_|_|_| |_|_|\_\[32m / / / /
+[0m    =========================================[32m/_/_/_/[0m
+
+	Version:        3.4
+	Build:          1257
+	Build time:     26.10.2021 14:18:37 UTC
+	Branch          master
+	Commit:         a364833
+	Commit time:    26.10.2021 14:15:20 UTC
+	JVM:            17.0.2
+	Lavaplayer      1.3.96-original
+
+2022-08-21 19:52:45.656  INFO 59885 --- [main] lavalink.server.Launcher                 : Starting Launcher on kyles-mbp.lan with PID 59885 (/Users/kyledickey/Documents/Code/Jams-bot/new-bot/lava-server/Lavalink.jar started by kyledickey in /Users/kyledickey/Documents/Code/Jams-bot/new-bot/lava-server)
+2022-08-21 19:52:45.657  INFO 59885 --- [main] lavalink.server.Launcher                 : No active profile set, falling back to default profiles: default
+2022-08-21 19:52:45.675  WARN 59885 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2022-08-21 19:52:46.152  WARN 59885 --- [main] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2022-08-21 19:52:46.168  INFO 59885 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
+2022-08-21 19:52:46.169  INFO 59885 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 490 ms
+2022-08-21 19:52:46.338  WARN 59885 --- [main] l.server.config.SentryConfiguration      : Turning off sentry
+2022-08-21 19:52:46.494  INFO 59885 --- [main] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
+2022-08-21 19:52:46.580  INFO 59885 --- [main] lavalink.server.config.KoeConfiguration  : OS: Mac OS X, Arch: aarch64
+2022-08-21 19:52:46.580  WARN 59885 --- [main] lavalink.server.config.KoeConfiguration  : This system and architecture appears to not support native audio sending! GC pauses may cause your bot to stutter during playback.
+2022-08-21 19:52:46.677  INFO 59885 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-21 19:52:46.810  INFO 59885 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
+2022-08-21 19:52:46.816  INFO 59885 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
+2022-08-21 19:52:46.851  INFO 59885 --- [main] o.s.b.w.e.u.UndertowServletWebServer     : Undertow started on port(s) 2333 (http) with context path ''
+2022-08-21 19:52:46.853  INFO 59885 --- [main] lavalink.server.Launcher                 : Started Launcher in 1.503 seconds (JVM running for 1.787)
+2022-08-21 19:52:46.854  INFO 59885 --- [main] lavalink.server.Launcher                 : You can safely ignore the big red warning about illegal reflection. See https://github.com/freyacodes/Lavalink/issues/295
+2022-08-21 19:52:50.614  INFO 59885 --- [XNIO-1 task-1] io.undertow.servlet                      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-21 19:52:50.614  INFO 59885 --- [XNIO-1 task-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-21 19:52:50.617  INFO 59885 --- [XNIO-1 task-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-08-21 19:52:50.626  INFO 59885 --- [XNIO-1 task-1] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:62183
+2022-08-21 19:52:50.667  INFO 59885 --- [XNIO-1 task-1] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:52:50.667  WARN 59885 --- [XNIO-1 task-1] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:52:58.152  INFO 59885 --- [XNIO-1 task-2] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:colder weather"
+2022-08-21 19:52:58.975  INFO 59885 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: colder weather
+2022-08-21 19:52:59.022  INFO 59885 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : {"track":"QAAAtgIATlphYyBCcm93biBCYW5kIC0gQ29sZGVyIFdlYXRoZXIgKE9mZmljaWFsIE11c2ljIFZpZGVvKSB8IFlvdSBHZXQgV2hhdCBZb3UgR2l2ZQAOWmFjIEJyb3duIEJhbmQAAAAAAARVYAALb291RkU1MUhjcU0AAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1vb3VGRTUxSGNxTQAHeW91dHViZQAAAAAAAAAA","op":"play","guildId":"731445738290020442"}
+2022-08-21 19:56:42.067  INFO 59885 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:62183 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:56:42.071  INFO 59885 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:56:43.102  INFO 59885 --- [XNIO-1 task-4] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:62436
+2022-08-21 19:56:43.111  INFO 59885 --- [XNIO-1 task-4] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:56:43.111  WARN 59885 --- [XNIO-1 task-4] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:56:46.647  INFO 59885 --- [XNIO-1 task-5] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:colder weather"
+2022-08-21 19:56:47.170  INFO 59885 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: colder weather
+2022-08-21 19:56:47.189  INFO 59885 --- [XNIO-1 I/O-8] lavalink.server.io.SocketServer          : {"0":"Q","1":"A","2":"A","3":"A","4":"t","5":"g","6":"I","7":"A","8":"T","9":"l","10":"p","11":"h","12":"Y","13":"y","14":"B","15":"C","16":"c","17":"m","18":"9","19":"3","20":"b","21":"i","22":"B","23":"C","24":"Y","25":"W","26":"5","27":"k","28":"I","29":"C","30":"0","31":"g","32":"Q","33":"2","34":"9","35":"s","36":"Z","37":"G","38":"V","39":"y","40":"I","41":"F","42":"d","43":"l","44":"Y","45":"X","46":"R","47":"o","48":"Z","49":"X","50":"I","51":"g","52":"K","53":"E","54":"9","55":"m","56":"Z","57":"m","58":"l","59":"j","60":"a","61":"W","62":"F","63":"s","64":"I","65":"E","66":"1","67":"1","68":"c","69":"2","70":"l","71":"j","72":"I","73":"F","74":"Z","75":"p","76":"Z","77":"G","78":"V","79":"v","80":"K","81":"S","82":"B","83":"8","84":"I","85":"F","86":"l","87":"v","88":"d","89":"S","90":"B","91":"H","92":"Z","93":"X","94":"Q","95":"g","96":"V","97":"2","98":"h","99":"h","100":"d","101":"C","102":"B","103":"Z","104":"b","105":"3","106":"U","107":"g","108":"R","109":"2","110":"l","111":"2","112":"Z","113":"Q","114":"A","115":"O","116":"W","117":"m","118":"F","119":"j","120":"I","121":"E","122":"J","123":"y","124":"b","125":"3","126":"d","127":"u","128":"I","129":"E","130":"J","131":"h","132":"b","133":"m","134":"Q","135":"A","136":"A","137":"A","138":"A","139":"A","140":"A","141":"A","142":"R","143":"V","144":"Y","145":"A","146":"A","147":"L","148":"b","149":"2","150":"9","151":"1","152":"R","153":"k","154":"U","155":"1","156":"M","157":"U","158":"h","159":"j","160":"c","161":"U","162":"0","163":"A","164":"A","165":"Q","166":"A","167":"r","168":"a","169":"H","170":"R","171":"0","172":"c","173":"H","174":"M","175":"6","176":"L","177":"y","178":"9","179":"3","180":"d","181":"3","182":"c","183":"u","184":"e","185":"W","186":"9","187":"1","188":"d","189":"H","190":"V","191":"i","192":"Z","193":"S","194":"5","195":"j","196":"b","197":"2","198":"0","199":"v","200":"d","201":"2","202":"F","203":"0","204":"Y","205":"2","206":"g","207":"/","208":"d","209":"j","210":"1","211":"v","212":"b","213":"3","214":"V","215":"G","216":"R","217":"T","218":"U","219":"x","220":"S","221":"G","222":"N","223":"x","224":"T","225":"Q","226":"A","227":"H","228":"e","229":"W","230":"9","231":"1","232":"d","233":"H","234":"V","235":"i","236":"Z","237":"Q","238":"A","239":"A","240":"A","241":"A","242":"A","243":"A","244":"A","245":"A","246":"A","247":"A","track":{"_events":{},"_eventsCount":2,"node":{"manager":{"_events":{},"_eventsCount":1,"nodes":{},"players":{},"voiceServers":{},"voiceStates":{},"shards":1,"expecting":{},"user":"935801319569104948"},"host":"localhost","port":2333,"reconnectInterval":15000,"password":"pooplmaopassword","ws":{"_events":{},"_eventsCount":3,"_binaryType":"nodebuffer","_closeCode":1006,"_closeFrameReceived":false,"_closeFrameSent":false,"_closeMessage":"","_closeTimer":null,"_extensions":{},"_protocol":"","_readyState":1,"_receiver":{"_writableState":{"objectMode":false,"highWaterMark":16384,"finalCalled":false,"needDrain":false,"ending":false,"ended":false,"finished":false,"destroyed":false,"decodeStrings":true,"defaultEncoding":"utf8","length":0,"writing":false,"corked":0,"sync":false,"bufferProcessing":false,"writecb":null,"writelen":0,"afterWriteTickInfo":null,"buffered":[],"bufferedIndex":0,"allBuffers":true,"allNoop":true,"pendingcb":0,"constructed":true,"prefinished":false,"errorEmitted":false,"emitClose":true,"autoDestroy":true,"errored":null,"closed":false,"closeEmitted":false},"_events":{},"_eventsCount":6,"_binaryType":"nodebuffer","_extensions":{},"_isServer":false,"_maxPayload":104857600,"_bufferedBytes":0,"_buffers":[],"_compressed":false,"_payloadLength":218,"_fragmented":0,"_masked":false,"_fin":true,"_opcode":1,"_totalPayloadLength":0,"_messageLength":0,"_fragments":[],"_state":0,"_loop":false},"_sender":{"_extensions":{},"_socket":{"connecting":false,"_hadError":false,"_parent":null,"_host":"localhost","_readableState":{"objectMode":false,"highWaterMark":16384,"buffer":{"head":null,"tail":null,"length":0},"length":0,"pipes":[],"flowing":true,"ended":false,"endEmitted":false,"reading":true,"constructed":true,"sync":false,"needReadable":true,"emittedReadable":false,"readableListening":false,"resumeScheduled":false,"errorEmitted":false,"emitClose":false,"autoDestroy":true,"destroyed":false,"errored":null,"closed":false,"closeEmitted":false,"defaultEncoding":"utf8","awaitDrainWriters":null,"multiAwaitDrain":false,"readingMore":false,"dataEmitted":true,"decoder":null,"encoding":null},"_events":{"end":[null,null]},"_eventsCount":4,"_writableState":{"objectMode":false,"highWaterMark":16384,"finalCalled":false,"needDrain":false,"ending":false,"ended":false,"finished":false,"destroyed":false,"decodeStrings":false,"defaultEncoding":"utf8","length":0,"writing":false,"corked":0,"sync":false,"bufferProcessing":false,"writecb":null,"writelen":0,"afterWriteTickInfo":null,"buffered":[],"bufferedIndex":0,"allBuffers":true,"allNoop":true,"pendingcb":0,"constructed":true,"prefinished":false,"errorEmitted":false,"emitClose":false,"autoDestroy":true,"errored":null,"closed":false,"closeEmitted":false},"allowHalfOpen":false,"_sockname":null,"_pendingData":null,"_pendingEncoding":"","server":null,"_server":null,"parser":null,"_httpMessage":null,"timeout":0},"_firstFragment":true,"_compress":false,"_bufferedBytes":0,"_deflating":false,"_queue":[]},"_socket":{"connecting":false,"_hadError":false,"_parent":null,"_host":"localhost","_readableState":{"objectMode":false,"highWaterMark":16384,"buffer":{"head":null,"tail":null,"length":0},"length":0,"pipes":[],"flowing":true,"ended":false,"endEmitted":false,"reading":true,"constructed":true,"sync":false,"needReadable":true,"emittedReadable":false,"readableListening":false,"resumeScheduled":false,"errorEmitted":false,"emitClose":false,"autoDestroy":true,"destroyed":false,"errored":null,"closed":false,"closeEmitted":false,"defaultEncoding":"utf8","awaitDrainWriters":null,"multiAwaitDrain":false,"readingMore":false,"dataEmitted":true,"decoder":null,"encoding":null},"_events":{"end":[null,null]},"_eventsCount":4,"_writableState":{"objectMode":false,"highWaterMark":16384,"finalCalled":false,"needDrain":false,"ending":false,"ended":false,"finished":false,"destroyed":false,"decodeStrings":false,"defaultEncoding":"utf8","length":0,"writing":false,"corked":0,"sync":false,"bufferProcessing":false,"writecb":null,"writelen":0,"afterWriteTickInfo":null,"buffered":[],"bufferedIndex":0,"allBuffers":true,"allNoop":true,"pendingcb":0,"constructed":true,"prefinished":false,"errorEmitted":false,"emitClose":false,"autoDestroy":true,"errored":null,"closed":false,"closeEmitted":false},"allowHalfOpen":false,"_sockname":null,"_pendingData":null,"_pendingEncoding":"","server":null,"_server":null,"parser":null,"_httpMessage":null,"timeout":0},"_bufferedAmount":0,"_isServer":false,"_redirects":0,"_url":"ws://localhost:2333/","_req":null},"stats":{"playingPlayers":0,"memory":{"reservable":2147483648,"used":95008696,"free":32917576,"allocated":127926272},"players":0,"cpu":{"cores":8,"systemLoad":0,"lavalinkLoad":0.13565891472868216},"uptime":237827},"resumeTimeout":120,"_queue":[],"id":"1"},"id":"731445738290020442","state":{"volume":100,"equalizer":[]},"playing":false,"timestamp":null,"paused":false,"track":null,"voiceUpdateState":null},"op":"play","guildId":"731445738290020442"}
+2022-08-21 19:56:47.206 ERROR 59885 --- [XNIO-1 I/O-8] lavalink.server.io.SocketServer          : Exception while handling websocket message
+
+org.json.JSONException: JSONObject["track"] not a string.
+	at org.json.JSONObject.getString(JSONObject.java:855) ~[json-20180813.jar!/:na]
+	at lavalink.server.io.WebSocketHandlers.play(WebSocketHandlers.kt:48) ~[classes!/:na]
+	at lavalink.server.io.SocketServer.handleTextMessageSafe(SocketServer.kt:162) ~[classes!/:na]
+	at lavalink.server.io.SocketServer.handleTextMessage(SocketServer.kt:139) ~[classes!/:na]
+	at org.springframework.web.socket.handler.AbstractWebSocketHandler.handleMessage(AbstractWebSocketHandler.java:43) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.WebSocketHandlerDecorator.handleMessage(WebSocketHandlerDecorator.java:75) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.LoggingWebSocketHandlerDecorator.handleMessage(LoggingWebSocketHandlerDecorator.java:56) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.ExceptionWebSocketHandlerDecorator.handleMessage(ExceptionWebSocketHandlerDecorator.java:58) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.handleTextMessage(StandardWebSocketHandlerAdapter.java:113) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.access$000(StandardWebSocketHandlerAdapter.java:42) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$3.onMessage(StandardWebSocketHandlerAdapter.java:84) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$3.onMessage(StandardWebSocketHandlerAdapter.java:81) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at io.undertow.websockets.jsr.FrameHandler$7.run(FrameHandler.java:286) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer$1.call(ServerWebSocketContainer.java:170) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer$1.call(ServerWebSocketContainer.java:167) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43) ~[undertow-servlet-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer.invokeEndpointMethod(ServerWebSocketContainer.java:604) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer.invokeEndpointMethod(ServerWebSocketContainer.java:594) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.invokeTextHandler(FrameHandler.java:266) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.onFullTextMessage(FrameHandler.java:317) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener$2.complete(AbstractReceiveListener.java:156) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener$2.complete(AbstractReceiveListener.java:152) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.BufferedTextMessage.read(BufferedTextMessage.java:105) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.readBufferedText(AbstractReceiveListener.java:152) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.bufferFullMessage(AbstractReceiveListener.java:90) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.onText(FrameHandler.java:182) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.handleEvent(AbstractReceiveListener.java:44) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.handleEvent(AbstractReceiveListener.java:33) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameReadListener.handleEvent(AbstractFramedChannel.java:951) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameReadListener.handleEvent(AbstractFramedChannel.java:932) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.conduits.ReadReadyHandler$ChannelListenerHandler.readReady(ReadReadyHandler.java:66) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.handleReady(NioSocketConduit.java:88) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:561) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+
+2022-08-21 19:57:45.466  INFO 59885 --- [XNIO-1 I/O-8] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:62436 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:57:45.467  INFO 59885 --- [XNIO-1 I/O-8] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:57:46.704  INFO 59885 --- [XNIO-1 task-7] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:62524
+2022-08-21 19:57:46.713  INFO 59885 --- [XNIO-1 task-7] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:57:46.713  WARN 59885 --- [XNIO-1 task-7] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:57:53.343  INFO 59885 --- [XNIO-1 task-8] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:hi"
+2022-08-21 19:57:54.082  INFO 59885 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: hi
+2022-08-21 19:57:54.090  INFO 59885 --- [XNIO-1 I/O-8] lavalink.server.io.SocketServer          : {"0":"Q","1":"A","2":"A","3":"A","4":"l","5":"g","6":"I","7":"A","8":"L","9":"F","10":"V","11":"u","12":"Z","13":"2","14":"h","15":"l","16":"d","17":"H","18":"R","19":"v","20":"I","21":"E","22":"1","23":"h","24":"d","25":"G","26":"h","27":"p","28":"Z","29":"X","30":"U","31":"g","32":"L","33":"S","34":"B","35":"I","36":"S","37":"S","38":"A","39":"o","40":"T","41":"2","42":"Z","43":"m","44":"a","45":"W","46":"N","47":"p","48":"Y","49":"W","50":"w","51":"g","52":"T","53":"X","54":"V","55":"z","56":"a","57":"W","58":"M","59":"g","60":"V","61":"m","62":"l","63":"k","64":"Z","65":"W","66":"8","67":"p","68":"A","69":"B","70":"B","71":"V","72":"b","73":"m","74":"d","75":"o","76":"Z","77":"X","78":"R","79":"0","80":"b","81":"y","82":"B","83":"N","84":"Y","85":"X","86":"R","87":"o","88":"a","89":"W","90":"V","91":"1","92":"A","93":"A","94":"A","95":"A","96":"A","97":"A","98":"A","99":"C","100":"n","101":"+","102":"A","103":"A","104":"C","105":"2","106":"V","107":"3","108":"R","109":"3","110":"l","111":"S","112":"a","113":"U","114":"M","115":"w","116":"b","117":"0","118":"F","119":"R","120":"A","121":"A","122":"E","123":"A","124":"K","125":"2","126":"h","127":"0","128":"d","129":"H","130":"B","131":"z","132":"O","133":"i","134":"8","135":"v","136":"d","137":"3","138":"d","139":"3","140":"L","141":"n","142":"l","143":"v","144":"d","145":"X","146":"R","147":"1","148":"Y","149":"m","150":"U","151":"u","152":"Y","153":"2","154":"9","155":"t","156":"L","157":"3","158":"d","159":"h","160":"d","161":"G","162":"N","163":"o","164":"P","165":"3","166":"Y","167":"9","168":"Z","169":"X","170":"d","171":"H","172":"e","173":"V","174":"J","175":"p","176":"Q","177":"z","178":"B","179":"v","180":"Q","181":"V","182":"E","183":"A","184":"B","185":"3","186":"l","187":"v","188":"d","189":"X","190":"R","191":"1","192":"Y","193":"m","194":"U","195":"A","196":"A","197":"A","198":"A","199":"A","200":"A","201":"A","202":"A","203":"A","204":"A","205":"A","206":"=","207":"=","track":{"_events":{},"_eventsCount":2,"node":{"manager":{"_events":{},"_eventsCount":1,"nodes":{},"players":{},"voiceServers":{},"voiceStates":{},"shards":1,"expecting":{},"user":"935801319569104948"},"host":"localhost","port":2333,"reconnectInterval":15000,"password":"pooplmaopassword","ws":{"_events":{},"_eventsCount":3,"_binaryType":"nodebuffer","_closeCode":1006,"_closeFrameReceived":false,"_closeFrameSent":false,"_closeMessage":"","_closeTimer":null,"_extensions":{},"_protocol":"","_readyState":1,"_receiver":{"_writableState":{"objectMode":false,"highWaterMark":16384,"finalCalled":false,"needDrain":false,"ending":false,"ended":false,"finished":false,"destroyed":false,"decodeStrings":true,"defaultEncoding":"utf8","length":0,"writing":false,"corked":0,"sync":false,"bufferProcessing":false,"writecb":null,"writelen":0,"afterWriteTickInfo":null,"buffered":[],"bufferedIndex":0,"allBuffers":true,"allNoop":true,"pendingcb":0,"constructed":true,"prefinished":false,"errorEmitted":false,"emitClose":true,"autoDestroy":true,"errored":null,"closed":false,"closeEmitted":false},"_events":{},"_eventsCount":6,"_binaryType":"nodebuffer","_extensions":{},"_isServer":false,"_maxPayload":104857600,"_bufferedBytes":0,"_buffers":[],"_compressed":false,"_payloadLength":219,"_fragmented":0,"_masked":false,"_fin":true,"_opcode":1,"_totalPayloadLength":0,"_messageLength":0,"_fragments":[],"_state":0,"_loop":false},"_sender":{"_extensions":{},"_socket":{"connecting":false,"_hadError":false,"_parent":null,"_host":"localhost","_readableState":{"objectMode":false,"highWaterMark":16384,"buffer":{"head":null,"tail":null,"length":0},"length":0,"pipes":[],"flowing":true,"ended":false,"endEmitted":false,"reading":true,"constructed":true,"sync":false,"needReadable":true,"emittedReadable":false,"readableListening":false,"resumeScheduled":false,"errorEmitted":false,"emitClose":false,"autoDestroy":true,"destroyed":false,"errored":null,"closed":false,"closeEmitted":false,"defaultEncoding":"utf8","awaitDrainWriters":null,"multiAwaitDrain":false,"readingMore":false,"dataEmitted":true,"decoder":null,"encoding":null},"_events":{"end":[null,null]},"_eventsCount":4,"_writableState":{"objectMode":false,"highWaterMark":16384,"finalCalled":false,"needDrain":false,"ending":false,"ended":false,"finished":false,"destroyed":false,"decodeStrings":false,"defaultEncoding":"utf8","length":0,"writing":false,"corked":0,"sync":false,"bufferProcessing":false,"writecb":null,"writelen":0,"afterWriteTickInfo":null,"buffered":[],"bufferedIndex":0,"allBuffers":true,"allNoop":true,"pendingcb":0,"constructed":true,"prefinished":false,"errorEmitted":false,"emitClose":false,"autoDestroy":true,"errored":null,"closed":false,"closeEmitted":false},"allowHalfOpen":false,"_sockname":null,"_pendingData":null,"_pendingEncoding":"","server":null,"_server":null,"parser":null,"_httpMessage":null,"timeout":0},"_firstFragment":true,"_compress":false,"_bufferedBytes":0,"_deflating":false,"_queue":[]},"_socket":{"connecting":false,"_hadError":false,"_parent":null,"_host":"localhost","_readableState":{"objectMode":false,"highWaterMark":16384,"buffer":{"head":null,"tail":null,"length":0},"length":0,"pipes":[],"flowing":true,"ended":false,"endEmitted":false,"reading":true,"constructed":true,"sync":false,"needReadable":true,"emittedReadable":false,"readableListening":false,"resumeScheduled":false,"errorEmitted":false,"emitClose":false,"autoDestroy":true,"destroyed":false,"errored":null,"closed":false,"closeEmitted":false,"defaultEncoding":"utf8","awaitDrainWriters":null,"multiAwaitDrain":false,"readingMore":false,"dataEmitted":true,"decoder":null,"encoding":null},"_events":{"end":[null,null]},"_eventsCount":4,"_writableState":{"objectMode":false,"highWaterMark":16384,"finalCalled":false,"needDrain":false,"ending":false,"ended":false,"finished":false,"destroyed":false,"decodeStrings":false,"defaultEncoding":"utf8","length":0,"writing":false,"corked":0,"sync":false,"bufferProcessing":false,"writecb":null,"writelen":0,"afterWriteTickInfo":null,"buffered":[],"bufferedIndex":0,"allBuffers":true,"allNoop":true,"pendingcb":0,"constructed":true,"prefinished":false,"errorEmitted":false,"emitClose":false,"autoDestroy":true,"errored":null,"closed":false,"closeEmitted":false},"allowHalfOpen":false,"_sockname":null,"_pendingData":null,"_pendingEncoding":"","server":null,"_server":null,"parser":null,"_httpMessage":null,"timeout":0},"_bufferedAmount":0,"_isServer":false,"_redirects":0,"_url":"ws://localhost:2333/","_req":null},"stats":{"playingPlayers":0,"memory":{"reservable":2147483648,"used":102239152,"free":25687120,"allocated":127926272},"players":0,"cpu":{"cores":8,"systemLoad":0,"lavalinkLoad":0.13731060606060605},"uptime":301429},"resumeTimeout":120,"_queue":[],"id":"1"},"id":"731445738290020442","state":{"volume":100,"equalizer":[]},"playing":false,"timestamp":null,"paused":false,"track":null,"voiceUpdateState":null},"op":"play","guildId":"731445738290020442"}
+2022-08-21 19:57:54.092 ERROR 59885 --- [XNIO-1 I/O-8] lavalink.server.io.SocketServer          : Exception while handling websocket message
+
+org.json.JSONException: JSONObject["track"] not a string.
+	at org.json.JSONObject.getString(JSONObject.java:855) ~[json-20180813.jar!/:na]
+	at lavalink.server.io.WebSocketHandlers.play(WebSocketHandlers.kt:48) ~[classes!/:na]
+	at lavalink.server.io.SocketServer.handleTextMessageSafe(SocketServer.kt:162) ~[classes!/:na]
+	at lavalink.server.io.SocketServer.handleTextMessage(SocketServer.kt:139) ~[classes!/:na]
+	at org.springframework.web.socket.handler.AbstractWebSocketHandler.handleMessage(AbstractWebSocketHandler.java:43) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.WebSocketHandlerDecorator.handleMessage(WebSocketHandlerDecorator.java:75) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.LoggingWebSocketHandlerDecorator.handleMessage(LoggingWebSocketHandlerDecorator.java:56) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.ExceptionWebSocketHandlerDecorator.handleMessage(ExceptionWebSocketHandlerDecorator.java:58) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.handleTextMessage(StandardWebSocketHandlerAdapter.java:113) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.access$000(StandardWebSocketHandlerAdapter.java:42) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$3.onMessage(StandardWebSocketHandlerAdapter.java:84) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$3.onMessage(StandardWebSocketHandlerAdapter.java:81) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at io.undertow.websockets.jsr.FrameHandler$7.run(FrameHandler.java:286) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer$1.call(ServerWebSocketContainer.java:170) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer$1.call(ServerWebSocketContainer.java:167) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43) ~[undertow-servlet-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer.invokeEndpointMethod(ServerWebSocketContainer.java:604) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer.invokeEndpointMethod(ServerWebSocketContainer.java:594) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.invokeTextHandler(FrameHandler.java:266) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.onFullTextMessage(FrameHandler.java:317) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener$2.complete(AbstractReceiveListener.java:156) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener$2.complete(AbstractReceiveListener.java:152) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.BufferedTextMessage.read(BufferedTextMessage.java:105) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.readBufferedText(AbstractReceiveListener.java:152) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.bufferFullMessage(AbstractReceiveListener.java:90) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.onText(FrameHandler.java:182) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.handleEvent(AbstractReceiveListener.java:44) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.handleEvent(AbstractReceiveListener.java:33) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameReadListener.handleEvent(AbstractFramedChannel.java:951) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameReadListener.handleEvent(AbstractFramedChannel.java:932) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.conduits.ReadReadyHandler$ChannelListenerHandler.readReady(ReadReadyHandler.java:66) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.handleReady(NioSocketConduit.java:88) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:561) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+
+2022-08-21 19:58:37.887  INFO 59885 --- [XNIO-1 I/O-8] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:62524 -- CloseStatus[code=1006, reason=]
+2022-08-21 19:58:37.890  INFO 59885 --- [XNIO-1 I/O-8] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 19:58:38.888  INFO 59885 --- [XNIO-1 task-10] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:62595
+2022-08-21 19:58:38.892  INFO 59885 --- [XNIO-1 task-10] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 19:58:38.892  WARN 59885 --- [XNIO-1 task-10] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 19:58:44.264  INFO 59885 --- [XNIO-1 task-11] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:hi"
+2022-08-21 19:58:44.862  INFO 59885 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: hi
+2022-08-21 19:58:44.870  INFO 59885 --- [XNIO-1 I/O-7] lavalink.server.io.SocketServer          : {"0":"Q","1":"A","2":"A","3":"A","4":"l","5":"g","6":"I","7":"A","8":"L","9":"F","10":"V","11":"u","12":"Z","13":"2","14":"h","15":"l","16":"d","17":"H","18":"R","19":"v","20":"I","21":"E","22":"1","23":"h","24":"d","25":"G","26":"h","27":"p","28":"Z","29":"X","30":"U","31":"g","32":"L","33":"S","34":"B","35":"I","36":"S","37":"S","38":"A","39":"o","40":"T","41":"2","42":"Z","43":"m","44":"a","45":"W","46":"N","47":"p","48":"Y","49":"W","50":"w","51":"g","52":"T","53":"X","54":"V","55":"z","56":"a","57":"W","58":"M","59":"g","60":"V","61":"m","62":"l","63":"k","64":"Z","65":"W","66":"8","67":"p","68":"A","69":"B","70":"B","71":"V","72":"b","73":"m","74":"d","75":"o","76":"Z","77":"X","78":"R","79":"0","80":"b","81":"y","82":"B","83":"N","84":"Y","85":"X","86":"R","87":"o","88":"a","89":"W","90":"V","91":"1","92":"A","93":"A","94":"A","95":"A","96":"A","97":"A","98":"A","99":"C","100":"n","101":"+","102":"A","103":"A","104":"C","105":"2","106":"V","107":"3","108":"R","109":"3","110":"l","111":"S","112":"a","113":"U","114":"M","115":"w","116":"b","117":"0","118":"F","119":"R","120":"A","121":"A","122":"E","123":"A","124":"K","125":"2","126":"h","127":"0","128":"d","129":"H","130":"B","131":"z","132":"O","133":"i","134":"8","135":"v","136":"d","137":"3","138":"d","139":"3","140":"L","141":"n","142":"l","143":"v","144":"d","145":"X","146":"R","147":"1","148":"Y","149":"m","150":"U","151":"u","152":"Y","153":"2","154":"9","155":"t","156":"L","157":"3","158":"d","159":"h","160":"d","161":"G","162":"N","163":"o","164":"P","165":"3","166":"Y","167":"9","168":"Z","169":"X","170":"d","171":"H","172":"e","173":"V","174":"J","175":"p","176":"Q","177":"z","178":"B","179":"v","180":"Q","181":"V","182":"E","183":"A","184":"B","185":"3","186":"l","187":"v","188":"d","189":"X","190":"R","191":"1","192":"Y","193":"m","194":"U","195":"A","196":"A","197":"A","198":"A","199":"A","200":"A","201":"A","202":"A","203":"A","204":"A","205":"A","206":"=","207":"=","track":{"_events":{},"_eventsCount":2,"node":{"manager":{"_events":{},"_eventsCount":1,"nodes":{},"players":{},"voiceServers":{},"voiceStates":{},"shards":1,"expecting":{},"user":"935801319569104948"},"host":"localhost","port":2333,"reconnectInterval":15000,"password":"pooplmaopassword","ws":{"_events":{},"_eventsCount":3,"_binaryType":"nodebuffer","_closeCode":1006,"_closeFrameReceived":false,"_closeFrameSent":false,"_closeMessage":"","_closeTimer":null,"_extensions":{},"_protocol":"","_readyState":1,"_receiver":{"_writableState":{"objectMode":false,"highWaterMark":16384,"finalCalled":false,"needDrain":false,"ending":false,"ended":false,"finished":false,"destroyed":false,"decodeStrings":true,"defaultEncoding":"utf8","length":0,"writing":false,"corked":0,"sync":false,"bufferProcessing":false,"writecb":null,"writelen":0,"afterWriteTickInfo":null,"buffered":[],"bufferedIndex":0,"allBuffers":true,"allNoop":true,"pendingcb":0,"constructed":true,"prefinished":false,"errorEmitted":false,"emitClose":true,"autoDestroy":true,"errored":null,"closed":false,"closeEmitted":false},"_events":{},"_eventsCount":6,"_binaryType":"nodebuffer","_extensions":{},"_isServer":false,"_maxPayload":104857600,"_bufferedBytes":0,"_buffers":[],"_compressed":false,"_payloadLength":218,"_fragmented":0,"_masked":false,"_fin":true,"_opcode":1,"_totalPayloadLength":0,"_messageLength":0,"_fragments":[],"_state":0,"_loop":false},"_sender":{"_extensions":{},"_socket":{"connecting":false,"_hadError":false,"_parent":null,"_host":"localhost","_readableState":{"objectMode":false,"highWaterMark":16384,"buffer":{"head":null,"tail":null,"length":0},"length":0,"pipes":[],"flowing":true,"ended":false,"endEmitted":false,"reading":true,"constructed":true,"sync":false,"needReadable":true,"emittedReadable":false,"readableListening":false,"resumeScheduled":false,"errorEmitted":false,"emitClose":false,"autoDestroy":true,"destroyed":false,"errored":null,"closed":false,"closeEmitted":false,"defaultEncoding":"utf8","awaitDrainWriters":null,"multiAwaitDrain":false,"readingMore":false,"dataEmitted":true,"decoder":null,"encoding":null},"_events":{"end":[null,null]},"_eventsCount":4,"_writableState":{"objectMode":false,"highWaterMark":16384,"finalCalled":false,"needDrain":false,"ending":false,"ended":false,"finished":false,"destroyed":false,"decodeStrings":false,"defaultEncoding":"utf8","length":0,"writing":false,"corked":0,"sync":false,"bufferProcessing":false,"writecb":null,"writelen":0,"afterWriteTickInfo":null,"buffered":[],"bufferedIndex":0,"allBuffers":true,"allNoop":true,"pendingcb":0,"constructed":true,"prefinished":false,"errorEmitted":false,"emitClose":false,"autoDestroy":true,"errored":null,"closed":false,"closeEmitted":false},"allowHalfOpen":false,"_sockname":null,"_pendingData":null,"_pendingEncoding":"","server":null,"_server":null,"parser":null,"_httpMessage":null,"timeout":0},"_firstFragment":true,"_compress":false,"_bufferedBytes":0,"_deflating":false,"_queue":[]},"_socket":{"connecting":false,"_hadError":false,"_parent":null,"_host":"localhost","_readableState":{"objectMode":false,"highWaterMark":16384,"buffer":{"head":null,"tail":null,"length":0},"length":0,"pipes":[],"flowing":true,"ended":false,"endEmitted":false,"reading":true,"constructed":true,"sync":false,"needReadable":true,"emittedReadable":false,"readableListening":false,"resumeScheduled":false,"errorEmitted":false,"emitClose":false,"autoDestroy":true,"destroyed":false,"errored":null,"closed":false,"closeEmitted":false,"defaultEncoding":"utf8","awaitDrainWriters":null,"multiAwaitDrain":false,"readingMore":false,"dataEmitted":true,"decoder":null,"encoding":null},"_events":{"end":[null,null]},"_eventsCount":4,"_writableState":{"objectMode":false,"highWaterMark":16384,"finalCalled":false,"needDrain":false,"ending":false,"ended":false,"finished":false,"destroyed":false,"decodeStrings":false,"defaultEncoding":"utf8","length":0,"writing":false,"corked":0,"sync":false,"bufferProcessing":false,"writecb":null,"writelen":0,"afterWriteTickInfo":null,"buffered":[],"bufferedIndex":0,"allBuffers":true,"allNoop":true,"pendingcb":0,"constructed":true,"prefinished":false,"errorEmitted":false,"emitClose":false,"autoDestroy":true,"errored":null,"closed":false,"closeEmitted":false},"allowHalfOpen":false,"_sockname":null,"_pendingData":null,"_pendingEncoding":"","server":null,"_server":null,"parser":null,"_httpMessage":null,"timeout":0},"_bufferedAmount":0,"_isServer":false,"_redirects":0,"_url":"ws://localhost:2333/","_req":null},"stats":{"playingPlayers":0,"memory":{"reservable":2147483648,"used":32784952,"free":95141320,"allocated":127926272},"players":0,"cpu":{"cores":8,"systemLoad":0,"lavalinkLoad":0.13949275362318841},"uptime":353608},"resumeTimeout":120,"_queue":[],"id":"1"},"id":"731445738290020442","state":{"volume":100,"equalizer":[]},"playing":false,"timestamp":null,"paused":false,"track":null,"voiceUpdateState":null},"op":"play","guildId":"731445738290020442"}
+2022-08-21 19:58:44.872 ERROR 59885 --- [XNIO-1 I/O-7] lavalink.server.io.SocketServer          : Exception while handling websocket message
+
+org.json.JSONException: JSONObject["track"] not a string.
+	at org.json.JSONObject.getString(JSONObject.java:855) ~[json-20180813.jar!/:na]
+	at lavalink.server.io.WebSocketHandlers.play(WebSocketHandlers.kt:48) ~[classes!/:na]
+	at lavalink.server.io.SocketServer.handleTextMessageSafe(SocketServer.kt:162) ~[classes!/:na]
+	at lavalink.server.io.SocketServer.handleTextMessage(SocketServer.kt:139) ~[classes!/:na]
+	at org.springframework.web.socket.handler.AbstractWebSocketHandler.handleMessage(AbstractWebSocketHandler.java:43) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.WebSocketHandlerDecorator.handleMessage(WebSocketHandlerDecorator.java:75) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.LoggingWebSocketHandlerDecorator.handleMessage(LoggingWebSocketHandlerDecorator.java:56) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.ExceptionWebSocketHandlerDecorator.handleMessage(ExceptionWebSocketHandlerDecorator.java:58) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.handleTextMessage(StandardWebSocketHandlerAdapter.java:113) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.access$000(StandardWebSocketHandlerAdapter.java:42) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$3.onMessage(StandardWebSocketHandlerAdapter.java:84) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$3.onMessage(StandardWebSocketHandlerAdapter.java:81) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at io.undertow.websockets.jsr.FrameHandler$7.run(FrameHandler.java:286) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer$1.call(ServerWebSocketContainer.java:170) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer$1.call(ServerWebSocketContainer.java:167) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43) ~[undertow-servlet-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer.invokeEndpointMethod(ServerWebSocketContainer.java:604) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer.invokeEndpointMethod(ServerWebSocketContainer.java:594) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.invokeTextHandler(FrameHandler.java:266) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.onFullTextMessage(FrameHandler.java:317) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener$2.complete(AbstractReceiveListener.java:156) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener$2.complete(AbstractReceiveListener.java:152) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.BufferedTextMessage.read(BufferedTextMessage.java:105) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.readBufferedText(AbstractReceiveListener.java:152) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.bufferFullMessage(AbstractReceiveListener.java:90) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.onText(FrameHandler.java:182) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.handleEvent(AbstractReceiveListener.java:44) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.handleEvent(AbstractReceiveListener.java:33) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameReadListener.handleEvent(AbstractFramedChannel.java:951) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameReadListener.handleEvent(AbstractFramedChannel.java:932) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.conduits.ReadReadyHandler$ChannelListenerHandler.readReady(ReadReadyHandler.java:66) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.handleReady(NioSocketConduit.java:88) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:561) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+
+2022-08-21 20:02:57.491  INFO 59885 --- [XNIO-1 I/O-7] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:62595 -- CloseStatus[code=1006, reason=]
+2022-08-21 20:02:57.494  INFO 59885 --- [XNIO-1 I/O-7] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2022-08-21 20:02:58.473  INFO 59885 --- [XNIO-1 task-13] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:62939
+2022-08-21 20:02:58.483  INFO 59885 --- [XNIO-1 task-13] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 20:02:58.483  WARN 59885 --- [XNIO-1 task-13] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 20:03:01.673  INFO 59885 --- [XNIO-1 task-14] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:hi"
+2022-08-21 20:03:02.432  INFO 59885 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: hi
+2022-08-21 20:03:02.440  INFO 59885 --- [XNIO-1 I/O-7] lavalink.server.io.SocketServer          : {"op":"voiceUpdate","guildId":"731445738290020442"}
+2022-08-21 20:03:02.440 ERROR 59885 --- [XNIO-1 I/O-7] lavalink.server.io.SocketServer          : Exception while handling websocket message
+
+org.json.JSONException: JSONObject["sessionId"] not found.
+	at org.json.JSONObject.get(JSONObject.java:566) ~[json-20180813.jar!/:na]
+	at org.json.JSONObject.getString(JSONObject.java:851) ~[json-20180813.jar!/:na]
+	at lavalink.server.io.WebSocketHandlers.voiceUpdate(WebSocketHandlers.kt:23) ~[classes!/:na]
+	at lavalink.server.io.SocketServer.handleTextMessageSafe(SocketServer.kt:161) ~[classes!/:na]
+	at lavalink.server.io.SocketServer.handleTextMessage(SocketServer.kt:139) ~[classes!/:na]
+	at org.springframework.web.socket.handler.AbstractWebSocketHandler.handleMessage(AbstractWebSocketHandler.java:43) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.WebSocketHandlerDecorator.handleMessage(WebSocketHandlerDecorator.java:75) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.LoggingWebSocketHandlerDecorator.handleMessage(LoggingWebSocketHandlerDecorator.java:56) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.ExceptionWebSocketHandlerDecorator.handleMessage(ExceptionWebSocketHandlerDecorator.java:58) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.handleTextMessage(StandardWebSocketHandlerAdapter.java:113) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.access$000(StandardWebSocketHandlerAdapter.java:42) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$3.onMessage(StandardWebSocketHandlerAdapter.java:84) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$3.onMessage(StandardWebSocketHandlerAdapter.java:81) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at io.undertow.websockets.jsr.FrameHandler$7.run(FrameHandler.java:286) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer$1.call(ServerWebSocketContainer.java:170) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer$1.call(ServerWebSocketContainer.java:167) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43) ~[undertow-servlet-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer.invokeEndpointMethod(ServerWebSocketContainer.java:604) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer.invokeEndpointMethod(ServerWebSocketContainer.java:594) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.invokeTextHandler(FrameHandler.java:266) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.onFullTextMessage(FrameHandler.java:317) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener$2.complete(AbstractReceiveListener.java:156) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener$2.complete(AbstractReceiveListener.java:152) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.BufferedTextMessage.read(BufferedTextMessage.java:105) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.readBufferedText(AbstractReceiveListener.java:152) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.bufferFullMessage(AbstractReceiveListener.java:90) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.onText(FrameHandler.java:182) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.handleEvent(AbstractReceiveListener.java:44) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.handleEvent(AbstractReceiveListener.java:33) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameReadListener.handleEvent(AbstractFramedChannel.java:951) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameReadListener.handleEvent(AbstractFramedChannel.java:932) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.conduits.ReadReadyHandler$ChannelListenerHandler.readReady(ReadReadyHandler.java:66) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.handleReady(NioSocketConduit.java:88) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:561) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+
+2022-08-21 20:03:02.441  INFO 59885 --- [XNIO-1 I/O-7] lavalink.server.io.SocketServer          : {"op":"play","guildId":"731445738290020442"}
+2022-08-21 20:03:02.442 ERROR 59885 --- [XNIO-1 I/O-7] lavalink.server.io.SocketServer          : Exception while handling websocket message
+
+org.json.JSONException: JSONObject["track"] not found.
+	at org.json.JSONObject.get(JSONObject.java:566) ~[json-20180813.jar!/:na]
+	at org.json.JSONObject.getString(JSONObject.java:851) ~[json-20180813.jar!/:na]
+	at lavalink.server.io.WebSocketHandlers.play(WebSocketHandlers.kt:48) ~[classes!/:na]
+	at lavalink.server.io.SocketServer.handleTextMessageSafe(SocketServer.kt:162) ~[classes!/:na]
+	at lavalink.server.io.SocketServer.handleTextMessage(SocketServer.kt:139) ~[classes!/:na]
+	at org.springframework.web.socket.handler.AbstractWebSocketHandler.handleMessage(AbstractWebSocketHandler.java:43) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.WebSocketHandlerDecorator.handleMessage(WebSocketHandlerDecorator.java:75) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.LoggingWebSocketHandlerDecorator.handleMessage(LoggingWebSocketHandlerDecorator.java:56) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.ExceptionWebSocketHandlerDecorator.handleMessage(ExceptionWebSocketHandlerDecorator.java:58) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.handleTextMessage(StandardWebSocketHandlerAdapter.java:113) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.access$000(StandardWebSocketHandlerAdapter.java:42) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$3.onMessage(StandardWebSocketHandlerAdapter.java:84) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$3.onMessage(StandardWebSocketHandlerAdapter.java:81) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at io.undertow.websockets.jsr.FrameHandler$7.run(FrameHandler.java:286) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer$1.call(ServerWebSocketContainer.java:170) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer$1.call(ServerWebSocketContainer.java:167) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43) ~[undertow-servlet-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer.invokeEndpointMethod(ServerWebSocketContainer.java:604) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer.invokeEndpointMethod(ServerWebSocketContainer.java:594) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.invokeTextHandler(FrameHandler.java:266) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.onFullTextMessage(FrameHandler.java:317) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener$2.complete(AbstractReceiveListener.java:156) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener$2.complete(AbstractReceiveListener.java:152) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.BufferedTextMessage.read(BufferedTextMessage.java:105) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.readBufferedText(AbstractReceiveListener.java:152) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.bufferFullMessage(AbstractReceiveListener.java:90) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.onText(FrameHandler.java:182) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.handleEvent(AbstractReceiveListener.java:44) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.handleEvent(AbstractReceiveListener.java:33) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameReadListener.handleEvent(AbstractFramedChannel.java:951) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameReadListener.handleEvent(AbstractFramedChannel.java:932) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.conduits.ReadReadyHandler$ChannelListenerHandler.readReady(ReadReadyHandler.java:66) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.handleReady(NioSocketConduit.java:88) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:561) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+
+2022-08-21 20:04:09.927  INFO 59885 --- [Thread-1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-08-21 20:04:09.932  INFO 59885 --- [Thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
+2022-08-21 20:04:09.944  INFO 59885 --- [Thread-1] io.undertow.servlet                      : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2022-08-21 20:04:09.949 ERROR 59885 --- [XNIO-1 I/O-7] org.xnio.listener                        : XNIO001007: A channel event listener threw an exception
+
+java.util.concurrent.RejectedExecutionException: XNIO007007: Thread is terminating
+	at org.xnio.nio.WorkerThread.execute(WorkerThread.java:590) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.websockets.jsr.UndertowSession$3.handleEvent(UndertowSession.java:396) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.UndertowSession$3.handleEvent(UndertowSession.java:388) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameCloseListener.handleEvent(AbstractFramedChannel.java:1063) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameCloseListener.handleEvent(AbstractFramedChannel.java:978) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.conduits.WriteReadyHandler$ChannelListenerHandler.terminated(WriteReadyHandler.java:70) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.writeTerminated(NioSocketConduit.java:234) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.terminateWrites(NioSocketConduit.java:223) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.truncateWrites(NioSocketConduit.java:228) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.conduits.IdleTimeoutConduit.truncateWrites(IdleTimeoutConduit.java:387) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.conduits.ConduitStreamSinkChannel.close(ConduitStreamSinkChannel.java:186) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.IoUtils.safeClose(IoUtils.java:134) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.conduits.WriteReadyHandler$ChannelListenerHandler.forceTermination(WriteReadyHandler.java:57) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.forceTermination(NioSocketConduit.java:107) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:494) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+
+2022-08-21 20:04:13.059  INFO 60177 --- [main] lavalink.server.Launcher                 : 
+
+[32m       .  [31m _                  _ _       _    [32m__ _ _
+[32m      /\\ [31m| | __ ___   ____ _| (_)_ __ | | __[32m\ \ \ \
+[32m     ( ( )[31m| |/ _` \ \ / / _` | | | '_ \| |/ /[32m \ \ \ \
+[32m      \\/ [31m| | (_| |\ V / (_| | | | | | |   < [32m  ) ) ) )
+[32m       '  [31m|_|\__,_| \_/ \__,_|_|_|_| |_|_|\_\[32m / / / /
+[0m    =========================================[32m/_/_/_/[0m
+
+	Version:        3.4
+	Build:          1257
+	Build time:     26.10.2021 14:18:37 UTC
+	Branch          master
+	Commit:         a364833
+	Commit time:    26.10.2021 14:15:20 UTC
+	JVM:            17.0.2
+	Lavaplayer      1.3.96-original
+
+2022-08-21 20:04:13.117  INFO 60177 --- [main] lavalink.server.Launcher                 : Starting Launcher on kyles-mbp.lan with PID 60177 (/Users/kyledickey/Documents/Code/Jams-bot/new-bot/lava-server/Lavalink.jar started by kyledickey in /Users/kyledickey/Documents/Code/Jams-bot/new-bot/lava-server)
+2022-08-21 20:04:13.118  INFO 60177 --- [main] lavalink.server.Launcher                 : No active profile set, falling back to default profiles: default
+2022-08-21 20:04:13.156  WARN 60177 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2022-08-21 20:04:13.627  WARN 60177 --- [main] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2022-08-21 20:04:13.640  INFO 60177 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
+2022-08-21 20:04:13.640  INFO 60177 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 499 ms
+2022-08-21 20:04:13.814  WARN 60177 --- [main] l.server.config.SentryConfiguration      : Turning off sentry
+2022-08-21 20:04:13.980  INFO 60177 --- [main] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
+2022-08-21 20:04:14.057  INFO 60177 --- [main] lavalink.server.config.KoeConfiguration  : OS: Mac OS X, Arch: aarch64
+2022-08-21 20:04:14.057  WARN 60177 --- [main] lavalink.server.config.KoeConfiguration  : This system and architecture appears to not support native audio sending! GC pauses may cause your bot to stutter during playback.
+2022-08-21 20:04:14.155  INFO 60177 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-21 20:04:14.294  INFO 60177 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
+2022-08-21 20:04:14.299  INFO 60177 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
+2022-08-21 20:04:14.332  INFO 60177 --- [main] o.s.b.w.e.u.UndertowServletWebServer     : Undertow started on port(s) 2333 (http) with context path ''
+2022-08-21 20:04:14.334  INFO 60177 --- [main] lavalink.server.Launcher                 : Started Launcher in 1.517 seconds (JVM running for 1.8)
+2022-08-21 20:04:14.335  INFO 60177 --- [main] lavalink.server.Launcher                 : You can safely ignore the big red warning about illegal reflection. See https://github.com/freyacodes/Lavalink/issues/295
+2022-08-21 20:05:45.183  INFO 60177 --- [XNIO-1 task-1] io.undertow.servlet                      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-21 20:05:45.183  INFO 60177 --- [XNIO-1 task-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-21 20:05:45.190  INFO 60177 --- [XNIO-1 task-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2022-08-21 20:05:45.203  INFO 60177 --- [XNIO-1 task-1] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:63152
+2022-08-21 20:05:45.248  INFO 60177 --- [XNIO-1 task-1] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 20:05:45.248  WARN 60177 --- [XNIO-1 task-1] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 20:05:49.159  INFO 60177 --- [XNIO-1 task-2] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:hi"
+2022-08-21 20:05:50.067  INFO 60177 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: hi
+2022-08-21 20:05:50.114  INFO 60177 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"op":"voiceUpdate","guildId":"731445738290020442"}
+2022-08-21 20:05:50.116 ERROR 60177 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Exception while handling websocket message
+
+org.json.JSONException: JSONObject["sessionId"] not found.
+	at org.json.JSONObject.get(JSONObject.java:566) ~[json-20180813.jar!/:na]
+	at org.json.JSONObject.getString(JSONObject.java:851) ~[json-20180813.jar!/:na]
+	at lavalink.server.io.WebSocketHandlers.voiceUpdate(WebSocketHandlers.kt:23) ~[classes!/:na]
+	at lavalink.server.io.SocketServer.handleTextMessageSafe(SocketServer.kt:161) ~[classes!/:na]
+	at lavalink.server.io.SocketServer.handleTextMessage(SocketServer.kt:139) ~[classes!/:na]
+	at org.springframework.web.socket.handler.AbstractWebSocketHandler.handleMessage(AbstractWebSocketHandler.java:43) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.WebSocketHandlerDecorator.handleMessage(WebSocketHandlerDecorator.java:75) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.LoggingWebSocketHandlerDecorator.handleMessage(LoggingWebSocketHandlerDecorator.java:56) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.handler.ExceptionWebSocketHandlerDecorator.handleMessage(ExceptionWebSocketHandlerDecorator.java:58) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.handleTextMessage(StandardWebSocketHandlerAdapter.java:113) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.access$000(StandardWebSocketHandlerAdapter.java:42) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$3.onMessage(StandardWebSocketHandlerAdapter.java:84) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$3.onMessage(StandardWebSocketHandlerAdapter.java:81) ~[spring-websocket-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at io.undertow.websockets.jsr.FrameHandler$7.run(FrameHandler.java:286) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer$1.call(ServerWebSocketContainer.java:170) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer$1.call(ServerWebSocketContainer.java:167) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43) ~[undertow-servlet-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer.invokeEndpointMethod(ServerWebSocketContainer.java:604) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.ServerWebSocketContainer.invokeEndpointMethod(ServerWebSocketContainer.java:594) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.invokeTextHandler(FrameHandler.java:266) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.onFullTextMessage(FrameHandler.java:317) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener$2.complete(AbstractReceiveListener.java:156) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener$2.complete(AbstractReceiveListener.java:152) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.BufferedTextMessage.read(BufferedTextMessage.java:105) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.readBufferedText(AbstractReceiveListener.java:152) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.bufferFullMessage(AbstractReceiveListener.java:90) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.FrameHandler.onText(FrameHandler.java:182) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.handleEvent(AbstractReceiveListener.java:44) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.core.AbstractReceiveListener.handleEvent(AbstractReceiveListener.java:33) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameReadListener.handleEvent(AbstractFramedChannel.java:951) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameReadListener.handleEvent(AbstractFramedChannel.java:932) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.conduits.ReadReadyHandler$ChannelListenerHandler.readReady(ReadReadyHandler.java:66) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.handleReady(NioSocketConduit.java:88) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:561) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+
+2022-08-21 20:05:50.117  INFO 60177 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"track":"QAAAlgIALFVuZ2hldHRvIE1hdGhpZXUgLSBISSAoT2ZmaWNpYWwgTXVzaWMgVmlkZW8pABBVbmdoZXR0byBNYXRoaWV1AAAAAAACn+AAC2V3R3lSaUMwb0FRAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9ZXdHeVJpQzBvQVEAB3lvdXR1YmUAAAAAAAAAAA==","op":"play","guildId":"731445738290020442"}
+2022-08-21 20:06:25.833  INFO 60177 --- [Thread-1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-08-21 20:06:25.837  INFO 60177 --- [Thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
+2022-08-21 20:06:25.852  WARN 60177 --- [lava-daemon-pool-playback-1-thread-1] c.s.d.l.t.p.LocalAudioTrackExecutor      : Suspicious exception for playback of ewGyRiC0oAQ
+
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: The track was unexpectedly terminated.
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.handlePlaybackInterrupt(LocalAudioTrackExecutor.java:347) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.executeProcessingLoop(LocalAudioTrackExecutor.java:291) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.executeProcessingLoop(LocalAudioTrackExecutor.java:249) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaAudioTrack.process(MatroskaAudioTrack.java:38) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.DelegatedAudioTrack.processDelegate(DelegatedAudioTrack.java:25) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.processStatic(YoutubeAudioTrack.java:57) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:49) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:104) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:348) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+	Suppressed: com.sedmelluq.discord.lavaplayer.tools.exception.EnvironmentInformation: 
+  lavaplayer.version: 1.3.96-original
+  os.arch: aarch64
+  os.name: Mac OS X
+  os.version: 12.3.1
+  java.vendor: Eclipse Adoptium
+  java.version: 17.0.2
+  java.runtime.version: 17.0.2+8
+  java.vm.version: 17.0.2+8
+Caused by: java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1638) ~[na:na]
+	at java.base/java.util.concurrent.ArrayBlockingQueue.put(ArrayBlockingQueue.java:370) ~[na:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.AllocatingAudioFrameBuffer.consume(AllocatingAudioFrameBuffer.java:178) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.common.OpusPacketRouter.passThrough(OpusPacketRouter.java:168) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.common.OpusPacketRouter.process(OpusPacketRouter.java:98) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaOpusTrackConsumer.consume(MatroskaOpusTrackConsumer.java:46) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.processFrameInBlock(MatroskaStreamingFile.java:371) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.parseClusterSimpleBlock(MatroskaStreamingFile.java:335) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.parseNextCluster(MatroskaStreamingFile.java:320) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.provideFrames(MatroskaStreamingFile.java:296) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaAudioTrack.lambda$process$0(MatroskaAudioTrack.java:39) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.executeProcessingLoop(LocalAudioTrackExecutor.java:275) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	... 10 common frames omitted
+
+2022-08-21 20:06:25.856  INFO 60177 --- [Thread-1] io.undertow.servlet                      : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2022-08-21 20:06:25.862 ERROR 60177 --- [XNIO-1 I/O-4] org.xnio.listener                        : XNIO001007: A channel event listener threw an exception
+
+java.util.concurrent.RejectedExecutionException: XNIO007007: Thread is terminating
+	at org.xnio.nio.WorkerThread.execute(WorkerThread.java:590) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.websockets.jsr.UndertowSession$3.handleEvent(UndertowSession.java:396) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.UndertowSession$3.handleEvent(UndertowSession.java:388) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameCloseListener.handleEvent(AbstractFramedChannel.java:1063) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameCloseListener.handleEvent(AbstractFramedChannel.java:978) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.conduits.WriteReadyHandler$ChannelListenerHandler.terminated(WriteReadyHandler.java:70) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.writeTerminated(NioSocketConduit.java:234) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.terminateWrites(NioSocketConduit.java:223) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.truncateWrites(NioSocketConduit.java:228) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.conduits.IdleTimeoutConduit.truncateWrites(IdleTimeoutConduit.java:387) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.conduits.ConduitStreamSinkChannel.close(ConduitStreamSinkChannel.java:186) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.IoUtils.safeClose(IoUtils.java:134) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.conduits.WriteReadyHandler$ChannelListenerHandler.forceTermination(WriteReadyHandler.java:57) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.forceTermination(NioSocketConduit.java:107) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:494) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+
+2022-08-21 20:06:27.109  INFO 60228 --- [main] lavalink.server.Launcher                 : 
+
+[32m       .  [31m _                  _ _       _    [32m__ _ _
+[32m      /\\ [31m| | __ ___   ____ _| (_)_ __ | | __[32m\ \ \ \
+[32m     ( ( )[31m| |/ _` \ \ / / _` | | | '_ \| |/ /[32m \ \ \ \
+[32m      \\/ [31m| | (_| |\ V / (_| | | | | | |   < [32m  ) ) ) )
+[32m       '  [31m|_|\__,_| \_/ \__,_|_|_|_| |_|_|\_\[32m / / / /
+[0m    =========================================[32m/_/_/_/[0m
+
+	Version:        3.4
+	Build:          1257
+	Build time:     26.10.2021 14:18:37 UTC
+	Branch          master
+	Commit:         a364833
+	Commit time:    26.10.2021 14:15:20 UTC
+	JVM:            17.0.2
+	Lavaplayer      1.3.96-original
+
+2022-08-21 20:06:27.164  INFO 60228 --- [main] lavalink.server.Launcher                 : Starting Launcher on kyles-mbp.lan with PID 60228 (/Users/kyledickey/Documents/Code/Jams-bot/new-bot/lava-server/Lavalink.jar started by kyledickey in /Users/kyledickey/Documents/Code/Jams-bot/new-bot/lava-server)
+2022-08-21 20:06:27.164  INFO 60228 --- [main] lavalink.server.Launcher                 : No active profile set, falling back to default profiles: default
+2022-08-21 20:06:27.205  WARN 60228 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2022-08-21 20:06:27.637  WARN 60228 --- [main] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2022-08-21 20:06:27.656  INFO 60228 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
+2022-08-21 20:06:27.656  INFO 60228 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 469 ms
+2022-08-21 20:06:27.812  WARN 60228 --- [main] l.server.config.SentryConfiguration      : Turning off sentry
+2022-08-21 20:06:27.951  INFO 60228 --- [main] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
+2022-08-21 20:06:28.024  INFO 60228 --- [main] lavalink.server.config.KoeConfiguration  : OS: Mac OS X, Arch: aarch64
+2022-08-21 20:06:28.025  WARN 60228 --- [main] lavalink.server.config.KoeConfiguration  : This system and architecture appears to not support native audio sending! GC pauses may cause your bot to stutter during playback.
+2022-08-21 20:06:28.122  INFO 60228 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-21 20:06:28.251  INFO 60228 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
+2022-08-21 20:06:28.257  INFO 60228 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
+2022-08-21 20:06:28.290  INFO 60228 --- [main] o.s.b.w.e.u.UndertowServletWebServer     : Undertow started on port(s) 2333 (http) with context path ''
+2022-08-21 20:06:28.292  INFO 60228 --- [main] lavalink.server.Launcher                 : Started Launcher in 1.391 seconds (JVM running for 1.617)
+2022-08-21 20:06:28.293  INFO 60228 --- [main] lavalink.server.Launcher                 : You can safely ignore the big red warning about illegal reflection. See https://github.com/freyacodes/Lavalink/issues/295
+2022-08-21 20:06:30.559  INFO 60228 --- [XNIO-1 task-1] io.undertow.servlet                      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-21 20:06:30.559  INFO 60228 --- [XNIO-1 task-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-21 20:06:30.566  INFO 60228 --- [XNIO-1 task-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2022-08-21 20:06:30.585  INFO 60228 --- [XNIO-1 task-1] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:63235
+2022-08-21 20:06:30.627  INFO 60228 --- [XNIO-1 task-1] lavalink.server.io.SocketServer          : Connection successfully established
+2022-08-21 20:06:30.627  WARN 60228 --- [XNIO-1 task-1] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2022-08-21 20:06:32.208  INFO 60228 --- [XNIO-1 task-2] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:hi"
+2022-08-21 20:06:33.085  INFO 60228 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: hi
+2022-08-21 20:06:33.141  INFO 60228 --- [XNIO-1 I/O-7] lavalink.server.io.SocketServer          : {"track":"QAAAlgIALFVuZ2hldHRvIE1hdGhpZXUgLSBISSAoT2ZmaWNpYWwgTXVzaWMgVmlkZW8pABBVbmdoZXR0byBNYXRoaWV1AAAAAAACn+AAC2V3R3lSaUMwb0FRAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9ZXdHeVJpQzBvQVEAB3lvdXR1YmUAAAAAAAAAAA==","op":"play","guildId":"731445738290020442"}
+2022-08-21 20:07:18.209  INFO 60228 --- [Thread-1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-08-21 20:07:18.213  INFO 60228 --- [Thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
+2022-08-21 20:07:18.225  WARN 60228 --- [lava-daemon-pool-playback-1-thread-1] c.s.d.l.t.p.LocalAudioTrackExecutor      : Suspicious exception for playback of ewGyRiC0oAQ
+
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: The track was unexpectedly terminated.
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.handlePlaybackInterrupt(LocalAudioTrackExecutor.java:347) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.executeProcessingLoop(LocalAudioTrackExecutor.java:291) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.executeProcessingLoop(LocalAudioTrackExecutor.java:249) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaAudioTrack.process(MatroskaAudioTrack.java:38) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.DelegatedAudioTrack.processDelegate(DelegatedAudioTrack.java:25) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.processStatic(YoutubeAudioTrack.java:57) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:49) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:104) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:348) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+	Suppressed: com.sedmelluq.discord.lavaplayer.tools.exception.EnvironmentInformation: 
+  lavaplayer.version: 1.3.96-original
+  os.arch: aarch64
+  os.name: Mac OS X
+  os.version: 12.3.1
+  java.vendor: Eclipse Adoptium
+  java.version: 17.0.2
+  java.runtime.version: 17.0.2+8
+  java.vm.version: 17.0.2+8
+Caused by: java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1638) ~[na:na]
+	at java.base/java.util.concurrent.ArrayBlockingQueue.put(ArrayBlockingQueue.java:370) ~[na:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.AllocatingAudioFrameBuffer.consume(AllocatingAudioFrameBuffer.java:178) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.common.OpusPacketRouter.passThrough(OpusPacketRouter.java:168) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.common.OpusPacketRouter.process(OpusPacketRouter.java:98) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaOpusTrackConsumer.consume(MatroskaOpusTrackConsumer.java:46) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.processFrameInBlock(MatroskaStreamingFile.java:371) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.parseClusterSimpleBlock(MatroskaStreamingFile.java:335) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.parseNextCluster(MatroskaStreamingFile.java:320) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.provideFrames(MatroskaStreamingFile.java:296) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaAudioTrack.lambda$process$0(MatroskaAudioTrack.java:39) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.executeProcessingLoop(LocalAudioTrackExecutor.java:275) ~[lavaplayer-fork-1.3.96.jar!/:na]
+	... 10 common frames omitted
+
+2022-08-21 20:07:18.233  INFO 60228 --- [Thread-1] io.undertow.servlet                      : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2022-08-21 20:07:18.236 ERROR 60228 --- [XNIO-1 I/O-7] org.xnio.listener                        : XNIO001007: A channel event listener threw an exception
+
+java.util.concurrent.RejectedExecutionException: XNIO007007: Thread is terminating
+	at org.xnio.nio.WorkerThread.execute(WorkerThread.java:590) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.websockets.jsr.UndertowSession$3.handleEvent(UndertowSession.java:396) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.websockets.jsr.UndertowSession$3.handleEvent(UndertowSession.java:388) ~[undertow-websockets-jsr-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameCloseListener.handleEvent(AbstractFramedChannel.java:1063) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at io.undertow.server.protocol.framed.AbstractFramedChannel$FrameCloseListener.handleEvent(AbstractFramedChannel.java:978) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.conduits.WriteReadyHandler$ChannelListenerHandler.terminated(WriteReadyHandler.java:70) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.writeTerminated(NioSocketConduit.java:234) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.terminateWrites(NioSocketConduit.java:223) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.truncateWrites(NioSocketConduit.java:228) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at io.undertow.conduits.IdleTimeoutConduit.truncateWrites(IdleTimeoutConduit.java:387) ~[undertow-core-2.0.26.Final.jar!/:2.0.26.Final]
+	at org.xnio.conduits.ConduitStreamSinkChannel.close(ConduitStreamSinkChannel.java:186) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.IoUtils.safeClose(IoUtils.java:134) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.conduits.WriteReadyHandler$ChannelListenerHandler.forceTermination(WriteReadyHandler.java:57) ~[xnio-api-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.NioSocketConduit.forceTermination(NioSocketConduit.java:107) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:494) ~[xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]
+

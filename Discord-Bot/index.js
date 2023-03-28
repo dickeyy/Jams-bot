@@ -1,5 +1,5 @@
-const { Client, Intents, MessageEmbed, Constants, MessageActionRow, MessageButton, Interaction } = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES] });
+const { Client, GatewayIntentBits, EmbedBuilder, Constants, MessageActionRow, MessageButton, Interaction, ApplicationCommandOptionType } = require('discord.js');
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates] });
 const { REST } = require('@discordjs/rest');
 const { Routes, InteractionResponseType } = require('discord-api-types/v9');
 const dotenv = require('dotenv');
@@ -26,22 +26,6 @@ dotenv.config();
 // Define Color Hexs
 const mainHex = "#5063f7"
 
-// Firebase config
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDNQrr0sE6JHczpQwTo-QL4e9_BkTnGn9k",
-//   authDomain: "jams-bot.firebaseapp.com",
-//   projectId: "jams-bot",
-//   storageBucket: "jams-bot.appspot.com",
-//   messagingSenderId: "975763003499",
-//   appId: "1:975763003499:web:2c52fbe0a59b0c1476f92e",
-//   measurementId: "G-91R8DS4RSH"
-// };
-
-// // Initialize Firebase Stuff
-// const app = initializeApp(firebaseConfig);
-// const db = getFirestore(app);
-// console.log('Firebase Initialized')
-
 // Initialize Mongo DB 
 const MongoUri = 'mongodb+srv://kyledickey:CL46qBaMu3def3fT@jamsbot.90bmz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const mClient = new MongoClient(MongoUri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
@@ -50,7 +34,7 @@ const mdb = mClient.db('jams-bot');
 console.log('Connected to MongoDB')
 
 // Register voice client
-client.player = new Player(client, {
+const player = new Player(client, {
     leaveOnEnd: false,
     leaveOnEmpty: false,
     ytdlOptions: {
@@ -59,9 +43,9 @@ client.player = new Player(client, {
         opusEncoded: true,
     }, 
 })
-client.player.use("reverbnation", Reverbnation);
-client.player.use("facebook", Facebook);
-client.player.use("vimeo", Vimeo)
+player.use("reverbnation", Reverbnation);
+player.use("facebook", Facebook);
+player.use("vimeo", Vimeo)
 console.log('Player Loaded')
 
 // Register Listener Client
@@ -94,15 +78,15 @@ console.log('Listener Client Initialized')
 // Write commands and stuff
 const commands = [
     { name: 'help', description: 'See all available commands' },
-    { name: 'play', description: 'Play a song', options: [{ name: 'song', description: 'What song you want to play', required: true, type: Constants.ApplicationCommandOptionTypes.STRING }] },
-    { name: 'queue', description: 'See the current queue', options: [{ name: 'page', description: 'See a specific page of the queue', required: false, type: Constants.ApplicationCommandOptionTypes.NUMBER }] },
+    { name: 'play', description: 'Play a song', options: [{ name: 'song', description: 'What song you want to play', required: true, type: ApplicationCommandOptionType.String }] },
+    { name: 'queue', description: 'See the current queue', options: [{ name: 'page', description: 'See a specific page of the queue', required: false, type: ApplicationCommandOptionType.Number }] },
     { name: 'stop', description: 'Make the bot leave the VC and clear the queue' },
     { name: 'shuffle', description: 'Shuffle the queue' },
     { name: 'nowplaying', description: 'Get info about the song that is currently playing' },
     { name: 'pause', description: 'Pause the current song' },
     { name: 'resume', description: 'Resume the current song' },
     { name: 'skip', description: 'Skip the current song' },
-    { name: 'skipto', description: 'Skip to a specific song in the queue', options: [{ name: 'number', description: 'What number song in the queue do you want to skip to', required: true, type: Constants.ApplicationCommandOptionTypes.NUMBER }] },
+    { name: 'skipto', description: 'Skip to a specific song in the queue', options: [{ name: 'number', description: 'What number song in the queue do you want to skip to', required: true, type: ApplicationCommandOptionType.Number }] },
     { name: 'clear', description: 'Clear the queue' },
     { name: 'stats', description: 'Get stats about the bot' },
     { name: 'loop', description: 'Loop the current song' },
@@ -110,11 +94,11 @@ const commands = [
     { name: 'stoploop', description: 'Stop looping the current song / queue' },
     { name: 'info', description: 'Get some information about the bot' },
     { name: 'lyrics', description: 'Get the lyrics for the current song' },
-    { name: 'volume', description: 'Set the default volume of the bot', options: [{ name: 'level', description: 'The level of the volume you want to set, must be < 250', required: true, type: Constants.ApplicationCommandOptionTypes.NUMBER }] },
-    { name: 'filter', description: 'Set a filter for the music', options: [{ name: 'filter', description: 'The filter you want to apply, to get a list of filters', required: true, type: Constants.ApplicationCommandOptionTypes.STRING, choices: [ { name: 'off', value: 'off'}, { name: '3D', value: '3D' }, { name: 'bassboost', value: 'bassboost_high' }, { name: '8D', value: '8D'}, { name: 'vaporwave', value: 'vaporwave' }, { name: 'nightcore', value: 'nightcore' }, { name: 'phaser', value: 'phaser' }, { name: 'tremolo', value: 'tremolo' }, { name: 'vibrato', value: 'vibrato' }, { name: 'reverse', value: 'reverse' }, { name: 'treble', value: 'treble' }, { name: 'normalizer', value: 'normalizer' }, { name: 'surrounding', value: 'surrounding' }, { name: 'pulsator', value: 'pulsator' }, { name: 'subboost', value: 'subboost' }, { name: 'karaoke', value: 'karaoke' }, { name: 'flanger', value: 'flanger' }, { name: 'compressor', value: 'compressor' }, { name: 'expander', value: 'expander' }, { name: 'softlimiter', value: 'softlimiter' }, { name: 'chorus', value: 'chorus' }, { name: 'fadein', value: 'fadein' }, { name: 'earrape', value: 'earrape' }] }] },
+    { name: 'volume', description: 'Set the default volume of the bot', options: [{ name: 'level', description: 'The level of the volume you want to set, must be < 250', required: true, type: ApplicationCommandOptionType.Number }] },
+    { name: 'filter', description: 'Set a filter for the music', options: [{ name: 'filter', description: 'The filter you want to apply, to get a list of filters', required: true, type: ApplicationCommandOptionType.String, choices: [ { name: 'off', value: 'off'}, { name: '3D', value: '3D' }, { name: 'bassboost', value: 'bassboost_high' }, { name: '8D', value: '8D'}, { name: 'vaporwave', value: 'vaporwave' }, { name: 'nightcore', value: 'nightcore' }, { name: 'phaser', value: 'phaser' }, { name: 'tremolo', value: 'tremolo' }, { name: 'vibrato', value: 'vibrato' }, { name: 'reverse', value: 'reverse' }, { name: 'treble', value: 'treble' }, { name: 'normalizer', value: 'normalizer' }, { name: 'surrounding', value: 'surrounding' }, { name: 'pulsator', value: 'pulsator' }, { name: 'subboost', value: 'subboost' }, { name: 'karaoke', value: 'karaoke' }, { name: 'flanger', value: 'flanger' }, { name: 'compressor', value: 'compressor' }, { name: 'expander', value: 'expander' }, { name: 'softlimiter', value: 'softlimiter' }, { name: 'chorus', value: 'chorus' }, { name: 'fadein', value: 'fadein' }, { name: 'earrape', value: 'earrape' }] }] },
     { name: 'leaderboard', description: 'See a voice activity leaderboard for your server' },
 
-    // {name: 'lavaplay', description: 'lava join', options: [{ name: 'song', description: 'song balls', required: true, type: Constants.ApplicationCommandOptionTypes.STRING }]}
+    // {name: 'lavaplay', description: 'lava join', options: [{ name: 'song', description: 'song balls', required: true, type: Constants.ApplicationCommandOptionType.STRING }]}
 ]
 
 // Register slash commands
@@ -161,8 +145,8 @@ client.on('interactionCreate', async interaction => {
     }
 
     if (commandName == 'play') {
-        const song = options.getString('song')
-        await playCmd(user,guild,interaction,song)
+        const query = options.getString('song')
+        await playCmd(user,guild,interaction,query)
     }
 
     if (commandName == 'queue') {
@@ -323,7 +307,7 @@ async function cmdRun(user,cmdName) {
 function helpCmd(user,guild) {
     const cmdName = 'help'
 
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
     .setTitle('Jams Help')
     .setDescription('All the command prefixes are `\`/`\`.\n\n`\`{item}`\` = optional parameter\n`\`[item]`\` = required parameter\n\n')
     .setFields([
@@ -343,7 +327,7 @@ async function playCmd(user,guild,interaction,song) {
     const cmdName = 'play'
     
     if (!interaction.member.voice.channel) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('You are not in a voice channel')
         .setColor('RED')
         cmdRun(user,cmdName)
@@ -352,16 +336,22 @@ async function playCmd(user,guild,interaction,song) {
             ephemeral: true
         })
     } else {
-        const queue = client.player.createQueue(interaction.guild)
+        const queue = player.createQueue(interaction.guild, {
+            metadata: {
+                channel: interaction.channel
+            }
+        })
+
         if (!queue.connection) {
             await queue.connect(interaction.member.voice.channel)
         }
-        const result = await client.player.search(song, {
+        const result = await player.search(song, {
             requestedBy: user,
             searchEnginge: QueryType.AUTO,
         })
+        
         if (result.tracks.length === 0) {
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
             .setTitle('No results found')
             .setColor('RED')
             cmdRun(user,cmdName)
@@ -371,7 +361,7 @@ async function playCmd(user,guild,interaction,song) {
             })
         } else {
             const track = result.tracks[0]
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
             if (queue.tracks.length == 0 && !queue.playing) {
                 embed
                 .setTitle('Now Playing')
@@ -379,7 +369,7 @@ async function playCmd(user,guild,interaction,song) {
                 embed
                 .setTitle('Added to Queue')
             }
-            
+
             if (track.playlist != undefined) {
                 const playlist = result.playlist
                 await queue.addTracks(result.tracks)
@@ -390,31 +380,38 @@ async function playCmd(user,guild,interaction,song) {
 
             } else {
                 await queue.addTrack(track)
+                
                 embed
                 .setDescription(`[${track.title}](${track.url})`)
                 .setThumbnail(track.thumbnail)
                 .setFooter({text: `Duration: ${track.duration} | Views: ${track.views}`})
             }
+
+            if (!queue.playing) {
+                queue.play(track)
+            }
+
             embed
             .setColor(mainHex)
-            cmdRun(user,cmdName)
             interaction.reply({
                 embeds: [embed],
             })
-        } if (!queue.playing) {
-            queue.play()
-        }
+
+            cmdRun(user,cmdName)
+        } 
     }
 }
+
+
 
 // Queue Command
 async function queueCmd(user,guild,interaction,page) {
     const cmdName = 'queue'
 
-    const queue = client.player.getQueue(guild.id)
+    const queue = player.getQueue(guild.id)
 
     if (!queue || !queue.playing) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('No songs in queue')
         .setColor('RED')
         cmdRun(user,cmdName)
@@ -429,7 +426,7 @@ async function queueCmd(user,guild,interaction,page) {
             const pageNum = 0
 
             if (pageNum > totalPages) {
-                const embed = new MessageEmbed()
+                const embed = new EmbedBuilder()
                 .setTitle(`There are/is only ${totalPages} page(s)`)
                 .setColor('RED')
                 cmdRun(user,cmdName)
@@ -446,7 +443,7 @@ async function queueCmd(user,guild,interaction,page) {
     
             interaction.reply({
                 embeds: [
-                    new MessageEmbed()
+                    new EmbedBuilder()
                     .setDescription(`**Currently Playing:**` + (currentSong ? `\`[${currentSong.duration}]\` ${currentSong.title} -- <@${currentSong.requestedBy.id}>` : `Nothing`) + `\n\n**Queue**\n${queueString}`)
                     .setColor(mainHex)
                     .setFooter({text: `Page ${pageNum + 1} / ${totalPages}`})
@@ -457,7 +454,7 @@ async function queueCmd(user,guild,interaction,page) {
             const pageNum = page - 1
 
             if (pageNum > totalPages) {
-                const embed = new MessageEmbed()
+                const embed = new EmbedBuilder()
                 .setTitle(`There are/is only ${totalPages} page(s)`)
                 .setColor('RED')
                 cmdRun(user,cmdName)
@@ -474,7 +471,7 @@ async function queueCmd(user,guild,interaction,page) {
     
             interaction.reply({
                 embeds: [
-                    new MessageEmbed()
+                    new EmbedBuilder()
                     .setDescription(`**Currently Playing:**` + (currentSong ? `\`[${currentSong.duration}]\` ${currentSong.title} -- <@${currentSong.requestedBy.id}>` : `Nothing`) + `\n\n**Queue**\n${queueString}`)
                     .setColor(mainHex)
                     .setFooter({text: `Page ${pageNum + 1} / ${totalPages}`})
@@ -490,10 +487,10 @@ async function queueCmd(user,guild,interaction,page) {
 async function stopCmd(user,guild,interaction) {
     const cmdName = 'stop'
 
-    const queue = client.player.getQueue(guild.id)
+    const queue = player.getQueue(guild.id)
     
     if (!queue) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('No songs in queue')
         .setColor('RED')
         cmdRun(user,cmdName)
@@ -505,7 +502,7 @@ async function stopCmd(user,guild,interaction) {
         queue.destroy()
         interaction.reply({
             embeds: [
-                new MessageEmbed()
+                new EmbedBuilder()
                 .setTitle('Stopped the bot and cleared the queue!')
                 .setColor(mainHex)
             ],
@@ -518,10 +515,10 @@ async function stopCmd(user,guild,interaction) {
 async function shuffleCmd(user,guild,interaction) {
     const cmdName = 'shuffle'
 
-    const queue = client.player.getQueue(guild.id)
+    const queue = player.getQueue(guild.id)
 
     if (!queue) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('No songs in queue')
         .setColor('RED')
         cmdRun(user,cmdName)
@@ -533,7 +530,7 @@ async function shuffleCmd(user,guild,interaction) {
         queue.shuffle()
         interaction.reply({
             embeds: [
-                new MessageEmbed()
+                new EmbedBuilder()
                 .setTitle(`Shuffled the queue! (${queue.tracks.length} songs)`)
                 .setColor(mainHex)
             ],
@@ -546,10 +543,10 @@ async function shuffleCmd(user,guild,interaction) {
 async function nowPlayingCmd(user,guild,interaction) {
     const cmdName = 'nowplaying'
 
-    const queue = client.player.getQueue(guild.id)
+    const queue = player.getQueue(guild.id)
 
     if (!queue) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('No songs in queue')
         .setColor('RED')
         cmdRun(user,cmdName)
@@ -565,7 +562,7 @@ async function nowPlayingCmd(user,guild,interaction) {
         })
         const song = queue.current
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('Currently Playing 🔊')
         .setColor(mainHex)
         .setThumbnail(song.thumbnail)
@@ -637,7 +634,7 @@ async function nowPlayingCmd(user,guild,interaction) {
         //         const songTitle = song.title
         //         lyricsClient.search(songTitle)
         //             .then(x => {
-        //                 const embed = new MessageEmbed()
+        //                 const embed = new EmbedBuilder()
         
         //                 if (x != null) {
         //                     embed.setTitle(`Lyrics for ${songTitle}`)
@@ -673,10 +670,10 @@ async function nowPlayingCmd(user,guild,interaction) {
 async function pauseCmd(user,guild,interaction) {
     const cmdName = 'pause'
 
-    const queue = client.player.getQueue(guild.id)
+    const queue = player.getQueue(guild.id)
     
     if (!queue.playing) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('Im not playing anything')
         .setColor('RED')
         cmdRun(user,cmdName)
@@ -707,7 +704,7 @@ async function pauseCmd(user,guild,interaction) {
         
         interaction.reply({
             embeds: [
-                new MessageEmbed()
+                new EmbedBuilder()
                 .setTitle('Paused the jams!')
                 .setColor(mainHex)
             ],
@@ -721,10 +718,10 @@ async function pauseCmd(user,guild,interaction) {
 async function resumeCmd(user,guild,interaction) {
     const cmdName = 'resume'
 
-    const queue = client.player.getQueue(guild.id)
+    const queue = player.getQueue(guild.id)
 
     if (!queue) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('No songs in queue')
         .setColor('RED')
         cmdRun(user,cmdName)
@@ -733,7 +730,7 @@ async function resumeCmd(user,guild,interaction) {
             ephemeral: true
         })
     } else if (!queue.setPaused) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('Im not paused')
         .setColor('RED')
         cmdRun(user,cmdName)
@@ -764,7 +761,7 @@ async function resumeCmd(user,guild,interaction) {
 
         interaction.reply({
             embeds: [
-                new MessageEmbed()
+                new EmbedBuilder()
                 .setTitle('Resumed the jams!')
                 .setColor(mainHex)
             ],
@@ -778,10 +775,10 @@ async function resumeCmd(user,guild,interaction) {
 async function skipCmd(user,guild,interaction) {
     const cmdName = 'skip'
 
-    const queue = client.player.getQueue(guild.id)
+    const queue = player.getQueue(guild.id)
 
     if (!queue) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('No songs in queue')
         .setColor('RED')
         cmdRun(user,cmdName)
@@ -793,7 +790,7 @@ async function skipCmd(user,guild,interaction) {
         queue.skip()
         interaction.reply({
             embeds: [
-                new MessageEmbed()
+                new EmbedBuilder()
                 .setTitle('Skipped the current song!')
                 .setColor(mainHex)
             ],
@@ -806,10 +803,10 @@ async function skipCmd(user,guild,interaction) {
 async function skiptoCmd(user,guild,interaction,queueNum) {
     const cmdName = 'skipto'
 
-    const queue = client.player.getQueue(guild.id)
+    const queue = player.getQueue(guild.id)
 
     if (!queue) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('No songs in queue')
         .setColor('RED')
         cmdRun(user,cmdName)
@@ -819,7 +816,7 @@ async function skiptoCmd(user,guild,interaction,queueNum) {
         })
     } else {
         if (queueNum - 1 > queue.tracks.length) {
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
             .setTitle('Invalid queue number')
             .setColor('RED')
             cmdRun(user,cmdName)
@@ -831,7 +828,7 @@ async function skiptoCmd(user,guild,interaction,queueNum) {
             queue.skipTo(queueNum - 1)
             interaction.reply({
                 embeds: [
-                    new MessageEmbed()
+                    new EmbedBuilder()
                     .setTitle(`Skipped to song ${queueNum} in the queue!`)
                     .setColor(mainHex)
                 ],
@@ -845,10 +842,10 @@ async function skiptoCmd(user,guild,interaction,queueNum) {
 async function clearCmd(user,guild,interaction) {
     const cmdName = 'clear'
 
-    const queue = client.player.getQueue(guild.id)
+    const queue = player.getQueue(guild.id)
 
     if (!queue) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('No songs in queue')
         .setColor('RED')
         cmdRun(user,cmdName)
@@ -860,7 +857,7 @@ async function clearCmd(user,guild,interaction) {
         queue.clear()
         interaction.reply({
             embeds: [
-                new MessageEmbed()
+                new EmbedBuilder()
                 .setTitle('Cleared the queue!')
                 .setColor(mainHex)
             ],
@@ -880,7 +877,7 @@ function statsCmd(user,guild,interaction) {
 
     cpu.usage().then(cpuPercentage => {
         mem.info().then(info => {
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
                 .setColor(mainHex)
                 .setTitle('Jams Stats')
                 .setThumbnail('https://jamsbot.com/assets/img/logo.png')
@@ -903,10 +900,10 @@ function statsCmd(user,guild,interaction) {
 async function loopCmd(user,guild,interaction) {
     const cmdName = 'loop'
 
-    const queue = client.player.getQueue(guild.id)
+    const queue = player.getQueue(guild.id)
 
     if (!queue) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('No songs in queue')
         .setColor('RED')
         cmdRun(user,cmdName)
@@ -919,7 +916,7 @@ async function loopCmd(user,guild,interaction) {
 
         if (loopMode != 1) {
             await queue.setRepeatMode(1)
-            const embed = new MessageEmbed() 
+            const embed = new EmbedBuilder() 
             .setTitle(`Looping ${queue.current.title}`)
             .setColor(mainHex)
             interaction.reply({
@@ -934,10 +931,10 @@ async function loopCmd(user,guild,interaction) {
 async function loopqueueCmd(user,guild,interaction) {
     const cmdName = 'loopqueue'
 
-    const queue = client.player.getQueue(guild.id)
+    const queue = player.getQueue(guild.id)
     
     if (!queue) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('No songs in queue')
         .setColor('RED')
         cmdRun(user,cmdName)
@@ -950,7 +947,7 @@ async function loopqueueCmd(user,guild,interaction) {
 
         if (loopMode != 2) {
             await queue.setRepeatMode(2)
-            const embed = new MessageEmbed() 
+            const embed = new EmbedBuilder() 
             .setTitle(`Looping queue`)
             .setColor(mainHex)
             interaction.reply({
@@ -965,10 +962,10 @@ async function loopqueueCmd(user,guild,interaction) {
 async function stoploopCmd(user,guild,interaction) {
     const cmdName = 'stoploop'
 
-    const queue = client.player.getQueue(guild.id)
+    const queue = player.getQueue(guild.id)
 
     if (!queue) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('No songs in queue')
         .setColor('RED')
         cmdRun(user,cmdName)
@@ -981,7 +978,7 @@ async function stoploopCmd(user,guild,interaction) {
 
         if (loopMode != 0) {
             await queue.setRepeatMode(0)
-            const embed = new MessageEmbed() 
+            const embed = new EmbedBuilder() 
             .setTitle(`Stopped looping`)
             .setColor(mainHex)
             interaction.reply({
@@ -996,7 +993,7 @@ async function stoploopCmd(user,guild,interaction) {
 function infoCmd(user,guild,interaction) {
     const cmdName = 'info'
 
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
     .setTitle('Jams Info')
     .setColor(mainHex)
     .setThumbnail('https://jamsbot.com/assets/img/logo.png')
@@ -1019,10 +1016,10 @@ function infoCmd(user,guild,interaction) {
 async function lyricsCmd(user,guild,interaction) {
     const cmdName = 'lyrics'
 
-    const queue = client.player.getQueue(guild.id)
+    const queue = player.getQueue(guild.id)
     
     if (!queue) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('No songs in queue')
         .setColor('RED')
         cmdRun(user,cmdName)
@@ -1035,7 +1032,7 @@ async function lyricsCmd(user,guild,interaction) {
         const songTitle = song.title
         lyricsClient.search(songTitle)
             .then(x => {
-                const embed = new MessageEmbed()
+                const embed = new EmbedBuilder()
 
                 if (x != null) {
                     embed.setTitle(`Lyrics for ${songTitle}`)
@@ -1065,10 +1062,10 @@ async function lyricsCmd(user,guild,interaction) {
 async function volumeCmd(user,guild,interaction,vol) {
     const cmdName = 'volume'
 
-    const queue = client.player.getQueue(guild.id) 
+    const queue = player.getQueue(guild.id) 
 
     if (!queue) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('No songs in queue')
         .setColor('RED')
         interaction.reply({
@@ -1077,7 +1074,7 @@ async function volumeCmd(user,guild,interaction,vol) {
         })
     } else {
         if (vol > 250) {
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
             .setTitle('Volume too high')
             .setColor('RED')
             interaction.reply({
@@ -1086,7 +1083,7 @@ async function volumeCmd(user,guild,interaction,vol) {
             })
         } else {
             await queue.setVolume(vol)
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
             .setTitle(`Volume set to ${vol}`)
             .setColor(mainHex)
             interaction.reply({
@@ -1100,10 +1097,10 @@ async function volumeCmd(user,guild,interaction,vol) {
 async function filterCmd(user,guild,interaction,filter) {
     const cmdName = 'filter'
 
-    const queue = client.player.getQueue(guild.id)
+    const queue = player.getQueue(guild.id)
 
     if (!queue) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('No songs in queue')
         .setColor('RED')
         interaction.reply({
@@ -1118,7 +1115,7 @@ async function filterCmd(user,guild,interaction,filter) {
             obj[fEnabled] = false
             await queue.setFilters(obj)
 
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
             .setTitle('Filters disabled')
             .setColor(mainHex)
             interaction.reply({
@@ -1131,7 +1128,7 @@ async function filterCmd(user,guild,interaction,filter) {
             obj[filter] = !queue.getFiltersEnabled().includes(filter),
             await queue.setFilters(obj)
 
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
             .setTitle(`Filter set to ${filter}`)
             .setColor(mainHex)
             interaction.reply({
@@ -1164,7 +1161,7 @@ async function leaderboardCmd(user,guild,interaction) {
 async function lavalinkJoin(user, guild, interaction, search) {
     
     if (!interaction.member.voice.channel) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle('Error: You are not in a voice channel')
         .setColor('RED')
         interaction.reply({
